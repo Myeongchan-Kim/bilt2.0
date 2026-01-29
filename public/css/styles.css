@@ -338,7 +338,16 @@ header > .bmc-btn {
 }
 
 .results.collapsed .results-header {
-    margin-bottom: 12px;
+    margin-bottom: 4px;
+}
+
+.results.collapsed .calc-step:first-child {
+    margin-top: 0;
+}
+
+.results.collapsed .calc-step:first-child .step-header {
+    padding-top: 6px;
+    padding-bottom: 6px;
 }
 
 .results-header h3 {
