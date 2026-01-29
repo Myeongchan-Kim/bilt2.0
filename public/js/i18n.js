@@ -42,6 +42,13 @@ function applyTranslations() {
         }
     });
 
+    document.querySelectorAll('[data-i18n-title]').forEach(el => {
+        const key = el.getAttribute('data-i18n-title');
+        if (translations[key]) {
+            el.title = translations[key];
+        }
+    });
+
     document.querySelectorAll('[data-question-key]').forEach(el => {
         const key = el.getAttribute('data-question-key');
         if (translations[key]) {

@@ -127,10 +127,12 @@ function calculate() {
     const housingRow = document.getElementById('housingRowHousingOnly');
     if (option === 'housing') {
         housingRow.style.display = 'grid';
+        const formulaEl = document.getElementById('housingFormulaHousingOnly');
+        const tooltipText = window.i18n?.get('housing_multiplier_tooltip') || 'Changes based on Spend Ratio!';
         if (housingMultiplier === 0 && housingCost > 0) {
-            document.getElementById('housingFormulaHousingOnly').textContent = `$${housingCost.toLocaleString()} × 0X (min 250)`;
+            formulaEl.innerHTML = `$${housingCost.toLocaleString()} × <span class="multiplier-highlight" title="${tooltipText}">0X</span> (min 250)`;
         } else {
-            document.getElementById('housingFormulaHousingOnly').textContent = `$${housingCost.toLocaleString()} × ${housingMultiplier}X`;
+            formulaEl.innerHTML = `$${housingCost.toLocaleString()} × <span class="multiplier-highlight" title="${tooltipText}">${housingMultiplier}X</span>`;
         }
         document.getElementById('monthlyHousingPointsDisplay').textContent = Math.round(monthlyHousingPoints).toLocaleString();
     } else {

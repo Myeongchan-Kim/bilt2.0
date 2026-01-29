@@ -204,6 +204,11 @@
     "ko": "<strong>비율별 배율:</strong><br>25% 미만: 0X (최소 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100% 이상: 1.25X",
     "es": "<strong>Multiplicador por Proporcion:</strong><br>Menos de 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X"
   },
+  "housing_multiplier_tooltip": {
+    "en": "Changes based on Spend Ratio!\n<25%: 0X | 25-50%: 0.5X | 50-75%: 0.75X | 75-100%: 1X | 100%+: 1.25X",
+    "ko": "지출 비율에 따라 변해요!\n<25%: 0X | 25-50%: 0.5X | 50-75%: 0.75X | 75-100%: 1X | 100%+: 1.25X",
+    "es": "Cambia segun la proporcion de gasto!\n<25%: 0X | 25-50%: 0.5X | 50-75%: 0.75X | 75-100%: 1X | 100%+: 1.25X"
+  },
   "tooltip_annual_points": {
     "en": "(Monthly Housing Points + Monthly Everyday Points) x 12 months",
     "ko": "(월 주거비 포인트 + 월 일반 지출 포인트) x 12개월",
