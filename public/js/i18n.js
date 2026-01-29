@@ -7,31 +7,16 @@ const langNames = { en: 'English', ko: '한국어', es: 'Español' };
 
 async function loadTranslations() {
     try {
-        const response = await fetch('/api/translations?lang=' + currentLang);
-        if (!response.ok) {
-            const fallback = await fetch('/data/translations.json');
-            const allTranslations = await fallback.json();
-            translations = {};
-            for (const [key, values] of Object.entries(allTranslations)) {
-                translations[key] = values[currentLang] || values['en'] || '';
-            }
-        } else {
-            translations = await response.json();
+        // Load directly from JSON file (faster than API cold start)
+        const response = await fetch('/data/translations.json');
+        const allTranslations = await response.json();
+        translations = {};
+        for (const [key, values] of Object.entries(allTranslations)) {
+            translations[key] = values[currentLang] || values['en'] || '';
         }
         applyTranslations();
     } catch (error) {
         console.error('Failed to load translations:', error);
-        try {
-            const fallback = await fetch('/data/translations.json');
-            const allTranslations = await fallback.json();
-            translations = {};
-            for (const [key, values] of Object.entries(allTranslations)) {
-                translations[key] = values[currentLang] || values['en'] || '';
-            }
-            applyTranslations();
-        } catch (e) {
-            console.error('Fallback also failed:', e);
-        }
     }
 }
 

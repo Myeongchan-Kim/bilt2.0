@@ -9,6 +9,11 @@ body {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     min-height: 100vh;
     color: #fff;
+    overflow-x: hidden;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 header {
@@ -635,12 +640,44 @@ header > .bmc-btn {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.comparison-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .comparison h3 {
     font-size: 1rem;
-    margin-bottom: 16px;
+    margin: 0;
     color: rgba(255, 255, 255, 0.9);
+}
+
+.comparison-content {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-top: 16px;
+}
+
+.comparison.collapsed .comparison-content {
+    max-height: 0;
+    margin-top: 0;
+    opacity: 0;
+}
+
+.comparison:not(.collapsed) .comparison-content {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.comparison.collapsed .fold-btn svg {
+    transform: rotate(0deg);
+}
+
+.comparison:not(.collapsed) .fold-btn svg {
+    transform: rotate(180deg);
 }
 
 .comparison-grid {
@@ -1515,12 +1552,44 @@ header > .bmc-btn {
     .input-2d-row {
         flex-direction: column;
     }
+    .input-2d-left {
+        width: 100%;
+        flex-shrink: 1;
+    }
     .input-2d-right {
         width: 100%;
         flex-direction: row;
+        flex-shrink: 1;
     }
     .manual-input-group {
         flex: 1;
+    }
+    .input-2d-options {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    /* Comparison grid - Keep 3 columns at 600px */
+    .comparison-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .comparison-card {
+        padding: 10px 8px;
+    }
+
+    .comparison-card .card-name {
+        font-size: 0.75rem;
+    }
+
+    .comparison-card .card-value {
+        font-size: 1rem;
+    }
+
+    /* Year comparison still 2 columns at this size */
+    .year-comparison {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -1660,4 +1729,393 @@ header > .bmc-btn {
 
 .footer-divider {
     color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===========================================
+   MOBILE RESPONSIVE STYLES
+   =========================================== */
+
+/* Phase 1: Touch Targets - Expand touch area while keeping visual size */
+.help-btn {
+    position: relative;
+}
+
+.help-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    /* Invisible but tappable */
+}
+
+/* 480px Breakpoint - Small phones */
+@media (max-width: 480px) {
+    /* Header Mobile Layout */
+    header {
+        padding: 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    header h1 {
+        font-size: clamp(1.1rem, 4vw, 1.3rem);
+        letter-spacing: 1px;
+        order: 1;
+        width: 100%;
+        text-align: center;
+    }
+
+    header > .lang-toggle {
+        position: static;
+        transform: none;
+        order: 2;
+    }
+
+    header > .bmc-btn {
+        position: static;
+        transform: none;
+        order: 3;
+    }
+
+    .lang-toggle {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+
+    /* Buy Me Coffee - Icon only on small screens */
+    .bmc-btn span {
+        display: none;
+    }
+
+    .bmc-btn {
+        padding: 8px;
+    }
+
+    /* Easter egg - hide on mobile to prevent overflow */
+    .easter-egg-img {
+        display: none;
+    }
+
+    /* Container - prevent overflow */
+    .container {
+        padding: 12px;
+        width: 100%;
+        max-width: 100vw;
+    }
+
+    /* Chat section - remove min-width */
+    .chat-section {
+        min-width: 0;
+        width: 100%;
+    }
+
+    /* Panel - prevent overflow */
+    .panel {
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    /* Calculator content */
+    .calc-content {
+        padding: 12px;
+        gap: 16px;
+        max-width: 100%;
+    }
+
+    /* Comparison grid - Keep 3 columns but compact */
+    .comparison-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    /* Compact comparison cards on mobile */
+    .comparison {
+        padding: 12px;
+    }
+
+    .comparison-card {
+        padding: 8px 6px;
+        border-radius: 8px;
+    }
+
+    .comparison-card .card-name {
+        font-size: 0.7rem;
+        margin-bottom: 4px;
+    }
+
+    .comparison-card .card-value {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+
+    .comparison-card .card-value-label {
+        font-size: 0.5rem;
+    }
+
+    .comparison-card .card-detail {
+        font-size: 0.6rem;
+        display: none; /* Hide on mobile for compactness */
+    }
+
+    .comparison-card .card-breakdown {
+        display: none; /* Hide on mobile */
+    }
+
+    .comparison-card .card-first-year {
+        margin-top: 6px;
+        padding-top: 6px;
+        font-size: 0.6rem;
+    }
+
+    .comparison-card .card-first-year .bonus-detail {
+        display: none; /* Hide bonus detail on mobile */
+    }
+
+    .best-badge {
+        font-size: 0.55rem;
+        padding: 1px 4px;
+        margin-top: 4px;
+    }
+
+    /* Year comparison - Stack */
+    .year-comparison {
+        grid-template-columns: 1fr;
+    }
+
+    /* 2D Input - Remove sticky, adjust layout */
+    .input-2d-container {
+        position: relative;
+        top: 0;
+        padding: 12px;
+        max-width: 100%;
+    }
+
+    .input-2d-options {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .input-2d-row {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .input-2d-left {
+        width: 100%;
+        max-width: 100%;
+        flex-shrink: 1;
+    }
+
+    .input-2d-right {
+        width: 100%;
+        flex-shrink: 1;
+        flex-direction: column;
+    }
+
+    /* 2D area wrapper - fix overflow */
+    .input-2d-area-wrapper {
+        margin-left: 30px;
+        max-width: calc(100% - 30px);
+    }
+
+    /* Manual inputs stack vertically */
+    .manual-input-group {
+        width: 100%;
+    }
+
+    /* Obsidian and Bilt Cash sliders - full width */
+    .obsidian-mult-section,
+    .bilt-cash-value-section {
+        max-width: 100%;
+    }
+
+    /* Result grid - single column on small */
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .result-item.full-width {
+        grid-column: span 1;
+    }
+
+    /* Tooltips - Responsive width */
+    .tooltip {
+        width: calc(100vw - 40px);
+        max-width: 280px;
+        left: auto;
+        right: -10px;
+        transform: none;
+    }
+
+    .tooltip::after {
+        left: auto;
+        right: 20px;
+        transform: none;
+    }
+
+    /* Result breakdown - stack on mobile */
+    .result-breakdown {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Calc row - responsive grid */
+    .calc-row {
+        grid-template-columns: 1fr auto;
+        gap: 4px;
+    }
+
+    .calc-formula {
+        display: none;
+    }
+
+    /* Panel header */
+    .panel-header {
+        padding: 12px 16px;
+        font-size: 1rem;
+    }
+
+    /* Radio options - ensure proper touch size */
+    .radio-option label {
+        padding: 14px 12px;
+        min-height: 44px;
+    }
+
+    /* Card options */
+    .card-options-vertical .radio-option label {
+        padding: 12px;
+        min-height: 44px;
+    }
+
+    /* Chat section height adjustment */
+    .chat-section {
+        height: 350px;
+    }
+
+    /* Comparison card padding */
+    .comparison-card {
+        padding: 14px;
+    }
+
+    /* Fold button - ensure touch target */
+    .fold-btn {
+        padding: 8px 12px;
+        min-height: 36px;
+    }
+}
+
+/* 375px Breakpoint - Extra small phones (iPhone SE, etc.) */
+@media (max-width: 375px) {
+    /* Container - tighter padding */
+    .container {
+        padding: 10px;
+    }
+
+    /* Calculator content */
+    .calc-content {
+        padding: 10px;
+        gap: 14px;
+    }
+
+    /* Header */
+    header {
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+    }
+
+    /* Results section */
+    .results {
+        padding: 14px;
+    }
+
+    /* Comparison section */
+    .comparison {
+        padding: 14px;
+    }
+
+    .comparison h3 {
+        font-size: 0.9rem;
+    }
+
+    /* 2D Input area - slightly shorter */
+    .input-2d-area {
+        height: 100px;
+    }
+
+    .input-2d-container {
+        padding: 10px;
+    }
+
+    /* Font size adjustments */
+    .result-item .value {
+        font-size: 1.2rem;
+    }
+
+    .year-value {
+        font-size: 1.3rem;
+    }
+
+    .comparison-card .card-value {
+        font-size: 1.1rem;
+    }
+
+    /* Tooltip - even more compact */
+    .tooltip {
+        width: calc(100vw - 30px);
+        padding: 8px 10px;
+        font-size: 0.7rem;
+    }
+
+    /* Input fields */
+    .input-group input[type="number"],
+    .manual-input-group input {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    /* Chat panel */
+    .chat-panel {
+        height: calc(100vh - 160px);
+    }
+
+    .chat-messages {
+        padding: 10px;
+    }
+
+    .message {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Step content padding */
+    .step-content {
+        padding: 8px 10px;
+    }
+
+    .step-header {
+        padding: 8px 10px;
+    }
+
+    /* Quick questions */
+    .quick-question {
+        padding: 10px;
+        font-size: 0.7rem;
+    }
+
+    /* Site footer */
+    .site-footer {
+        padding: 12px 15px;
+    }
+
+    .footer-content {
+        font-size: 0.75rem;
+        gap: 8px;
+    }
 }

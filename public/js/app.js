@@ -160,6 +160,23 @@ function setupEventListeners() {
         });
     }
 
+    // Comparison fold/unfold
+    const comparisonFoldBtn = document.getElementById('comparisonFoldBtn');
+    const comparisonSection = document.getElementById('comparisonSection');
+    if (comparisonFoldBtn && comparisonSection) {
+        comparisonFoldBtn.addEventListener('click', () => {
+            comparisonSection.classList.toggle('collapsed');
+            const foldText = comparisonFoldBtn.querySelector('.fold-text');
+            if (comparisonSection.classList.contains('collapsed')) {
+                foldText.setAttribute('data-i18n', 'expand');
+                foldText.textContent = window.i18n ? window.i18n.get('expand') : 'Expand';
+            } else {
+                foldText.setAttribute('data-i18n', 'collapse');
+                foldText.textContent = window.i18n ? window.i18n.get('collapse') : 'Collapse';
+            }
+        });
+    }
+
     // Easter egg
     const easterEggTrigger = document.getElementById('easterEggTrigger');
     const easterEggImg = document.getElementById('easterEggImg');

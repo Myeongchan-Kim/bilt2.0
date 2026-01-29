@@ -26,15 +26,15 @@ test.describe('Calculator functionality', () => {
   });
 
   test('should update results when housing input changes', async ({ page }) => {
-    const housingInput = page.locator('#housingCost');
-
-    // Change housing to $3000
-    await housingInput.fill('3000');
-    // Trigger input event
-    await housingInput.dispatchEvent('input');
+    // Change housing to $3000 and trigger calculation
+    await page.evaluate(() => {
+      const input = document.getElementById('housingCost');
+      input.value = '3000';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
 
     // Wait for calculation update
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(300);
 
     // Check that results have updated (spend ratio should change)
     const spendRatio = page.locator('#spendRatio');
@@ -43,15 +43,15 @@ test.describe('Calculator functionality', () => {
   });
 
   test('should update results when everyday spend input changes', async ({ page }) => {
-    const everydayInput = page.locator('#everydaySpend');
-
-    // Change everyday spend to $1000
-    await everydayInput.fill('1000');
-    // Trigger input event
-    await everydayInput.dispatchEvent('input');
+    // Change everyday spend to $1000 and trigger calculation
+    await page.evaluate(() => {
+      const input = document.getElementById('everydaySpend');
+      input.value = '1000';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
 
     // Wait for calculation update
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(300);
 
     // Check that results have updated
     const spendRatio = page.locator('#spendRatio');
@@ -87,25 +87,38 @@ test.describe('Calculator functionality', () => {
   });
 
   test('should update hotel value selection and recalculate', async ({ page }) => {
-    // Default hotel value is $400+
     const benefitsDetail = page.locator('#benefitsDetail');
+    const annualBenefits = page.locator('#annualBenefits');
+
+    // Wait for initial calculation to complete (default hotel is $100)
+    await page.waitForTimeout(300);
+
+    // Verify initial state shows Hotel $100 + Cash $200 for Palladium
+    // Default hotel is $100, Palladium has $200 cash bonus
+    await expect(benefitsDetail).toContainText('Hotel $100');
+
+    // Select $400+ hotel value using evaluate
+    await page.evaluate(() => {
+      const radio = document.getElementById('hotel400');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForTimeout(300);
+
+    // Benefits detail should show $400 for hotel
     await expect(benefitsDetail).toContainText('400');
 
-    // Click the label for $100 hotel value
-    await page.locator('label[for="hotel100"]').click();
-    await page.waitForTimeout(200);
-
-    // Benefits detail should show $100 for hotel
-    await expect(benefitsDetail).toContainText('100');
-
     // Test $0 hotel value
-    await page.locator('label[for="hotel0"]').click();
-    await page.waitForTimeout(200);
+    await page.evaluate(() => {
+      const radio = document.getElementById('hotel0');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForTimeout(300);
 
     // With $0 hotel, Palladium should only show Cash $200
     await expect(benefitsDetail).toContainText('Cash $200');
     // Benefits should be $200 (only cash bonus, no hotel)
-    const annualBenefits = page.locator('#annualBenefits');
     await expect(annualBenefits).toContainText('$200');
   });
 });

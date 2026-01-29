@@ -365,10 +365,20 @@
                     </div>
 
                     <!-- === CARD COMPARISON === -->
-                    <div class="comparison" data-testid="card-comparison">
-                        <h3 data-i18n="card_comparison">Card Comparison (Annual)</h3>
-                        <div class="comparison-grid" id="comparisonGrid" data-testid="comparison-grid">
-                            <!-- Filled by JS -->
+                    <div class="comparison" id="comparisonSection" data-testid="card-comparison">
+                        <div class="comparison-header">
+                            <h3 data-i18n="card_comparison">Card Comparison (Annual)</h3>
+                            <button class="fold-btn" id="comparisonFoldBtn" data-testid="comparison-fold-btn" type="button">
+                                <span class="fold-text" data-i18n="collapse">Collapse</span>
+                                <svg viewBox="0 0 24 24" width="16" height="16">
+                                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="comparison-content">
+                            <div class="comparison-grid" id="comparisonGrid" data-testid="comparison-grid">
+                                <!-- Filled by JS -->
+                            </div>
                         </div>
                     </div>
                 </div>

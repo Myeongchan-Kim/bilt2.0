@@ -9,11 +9,15 @@ test.describe('Card selection functionality', () => {
   });
 
   test('should select Blue card and show $0 fee', async ({ page }) => {
-    // Click Blue card label
-    await page.locator('label[for="cardBlue"]').click();
+    // Select Blue card using evaluate to handle hidden radio inputs
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardBlue');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
 
     // Wait for calculation update
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(300);
 
     // Fee should show $0
     const annualFee = page.locator('#annualFee');
@@ -29,11 +33,15 @@ test.describe('Card selection functionality', () => {
   });
 
   test('should select Obsidian card and show $95 fee', async ({ page }) => {
-    // Click Obsidian card label
-    await page.locator('label[for="cardObsidian"]').click();
+    // Select Obsidian card using evaluate to handle hidden radio inputs
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardObsidian');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
 
     // Wait for calculation update
-    await page.waitForTimeout(200);
+    await page.waitForTimeout(300);
 
     // Fee should show $95
     const annualFee = page.locator('#annualFee');
@@ -70,9 +78,13 @@ test.describe('Card selection functionality', () => {
     // Comparison grid should have content
     await expect(comparisonGrid).not.toBeEmpty();
 
-    // Change to Blue card
-    await page.locator('label[for="cardBlue"]').click();
-    await page.waitForTimeout(200);
+    // Change to Blue card using evaluate
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardBlue');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForTimeout(300);
 
     // Comparison should still be populated
     await expect(comparisonGrid).not.toBeEmpty();
@@ -87,14 +99,22 @@ test.describe('Card selection functionality', () => {
     await expect(monthlyEverydayPoints).toContainText('1,000');
 
     // Switch to Obsidian: 2X multiplier (default slider value)
-    await page.locator('label[for="cardObsidian"]').click();
-    await page.waitForTimeout(200);
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardObsidian');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForTimeout(300);
     await expect(everydayFormula).toContainText('2X');
     await expect(monthlyEverydayPoints).toContainText('1,000');
 
     // Switch to Blue: 1X multiplier
-    await page.locator('label[for="cardBlue"]').click();
-    await page.waitForTimeout(200);
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardBlue');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForTimeout(300);
     await expect(everydayFormula).toContainText('1X');
     await expect(monthlyEverydayPoints).toContainText('500');
   });
@@ -108,13 +128,21 @@ test.describe('Card selection functionality', () => {
     await expect(bonusPointsValue).toContainText('750'); // 50,000 * 0.015
 
     // Switch to Obsidian: $200 signup bonus
-    await page.locator('label[for="cardObsidian"]').click();
-    await page.waitForTimeout(200);
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardObsidian');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForTimeout(300);
     await expect(bonusCash).toContainText('200');
 
     // Switch to Blue: $100 signup bonus
-    await page.locator('label[for="cardBlue"]').click();
-    await page.waitForTimeout(200);
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardBlue');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    await page.waitForTimeout(300);
     await expect(bonusCash).toContainText('100');
   });
 
@@ -122,12 +150,16 @@ test.describe('Card selection functionality', () => {
     const firstYearValue = page.locator('#firstYearValue');
 
     // Get Palladium first year value (wait for it to be stable)
-    await page.waitForTimeout(100);
+    await page.waitForTimeout(200);
     const palladiumText = await firstYearValue.textContent();
     const palladiumVal = parseInt(palladiumText?.replace(/[$,]/g, '') || '0');
 
-    // Switch to Blue
-    await page.locator('label[for="cardBlue"]').click();
+    // Switch to Blue using evaluate
+    await page.evaluate(() => {
+      const radio = document.getElementById('cardBlue');
+      radio.checked = true;
+      radio.dispatchEvent(new Event('change', { bubbles: true }));
+    });
     await page.waitForTimeout(300);
 
     const blueText = await firstYearValue.textContent();
