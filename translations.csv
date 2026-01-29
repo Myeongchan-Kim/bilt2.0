@@ -1,0 +1,44 @@
+key,en,ko
+site_title,BILT 2.0 Card Strategy,BILT 2.0 카드 전략
+calculator,Calculator,계산기
+spend_settings,Spend Settings,지출 설정
+monthly_housing,Monthly Housing,월 주거비
+monthly_everyday,Monthly Everyday Spend,월 일상 지출
+everyday_spend_short,Everyday Spend,일상 지출
+housing_short,Housing,주거비
+card_selection,Card Selection,카드 선택
+annual_fee,Annual Fee,연회비
+reward_option,Reward Option,리워드 옵션
+housing_only,Housing-only,Housing-only
+housing_only_desc,Auto 0X~1.25X,자동 0X~1.25X
+flexible_cash,Flexible Cash,Flexible Cash
+flexible_cash_desc,4% Cash + Max 1X,4% Cash + 최대 1X
+results,Results,계산 결과
+monthly_housing_points,Monthly Housing Points,월간 주거비 포인트
+monthly_everyday_points,Monthly Everyday Points,월간 일상 지출 포인트
+monthly_bilt_cash,Monthly Bilt Cash,월간 Bilt Cash
+remaining_bilt_cash,Remaining Bilt Cash,남은 Bilt Cash
+annual_total_value,Annual Total Value (Est.),연간 총 가치 (예상)
+everyday_spend_ratio,Everyday Spend Ratio,Everyday Spend Ratio
+housing_only_multiplier,Housing-only Multiplier,Housing-only 배율
+annual_points_total,Annual Points Total,연간 포인트 총계
+card_comparison,Card Comparison (Annual),카드별 연간 가치 비교
+ai_assistant,AI Assistant,AI 어시스턴트
+enter_api_key,Enter Gemini API Key,Gemini API Key 입력
+card_helper,Bilt Card Helper,Bilt 카드 도우미
+ask_questions,Ask about card selection and reward options.,카드 선택과 리워드 옵션 등을 물어보세요.
+q_best_card,Which card is best for me?,어떤 카드가 저에게 가장 좋을까요?
+q_option_diff,Difference between Housing-only and Flexible?,Housing-only와 Flexible 차이점은?
+q_current_value,Which option is better for my values?,현재 값 기준 어떤 옵션이 유리?
+enter_question,Enter your question...,질문 입력...
+send,Send,전송
+tooltip_housing_points,"<strong>Housing-only:</strong> Housing × Multiplier (0~1.25X)<br>Multiplier determined by Everyday Spend Ratio<br><br><strong>Flexible:</strong> Unlock with Bilt Cash<br>$3 Cash = 100 points (max 1X)","<strong>Housing-only:</strong> 주거비 × 배율 (0~1.25X)<br>배율은 Everyday Spend Ratio로 결정됨<br><br><strong>Flexible:</strong> Bilt Cash로 잠금 해제<br>$3 Cash = 100 포인트 (최대 1X)"
+tooltip_everyday_points,"<strong>Blue:</strong> Everyday Spend × 1X<br><strong>Obsidian:</strong> Avg 1.5X (Travel 2X, Dining/Grocery 3X)<br><strong>Palladium:</strong> Everyday Spend × 2X","<strong>Blue:</strong> 일상 지출 × 1X<br><strong>Obsidian:</strong> 평균 1.5X (여행 2X, 다이닝/그로서리 3X)<br><strong>Palladium:</strong> 일상 지출 × 2X"
+tooltip_monthly_cash,"<strong>Flexible option only</strong><br>Everyday Spend × 4% = Bilt Cash<br><br>No Bilt Cash earned with Housing-only option","<strong>Flexible 옵션만 해당</strong><br>일상 지출 × 4% = Bilt Cash<br><br>Housing-only 옵션에서는 Bilt Cash 적립 없음"
+tooltip_remaining_cash,"Remaining Bilt Cash after unlocking housing points<br><br><strong>Calculation:</strong> Monthly Cash - (Unlocked Points ÷ 100 × $3)<br><br>Remaining Cash can be used for other purposes","주거비 포인트 잠금 해제 후 남은 Bilt Cash<br><br><strong>계산:</strong> 월간 Cash - (잠금 해제 포인트 ÷ 100 × $3)<br><br>남은 Cash는 다른 용도로 사용 가능"
+tooltip_annual_value,"<strong>Formula:</strong><br>(Annual Points × $0.015) + Annual Remaining Cash + Annual Benefits - Annual Fee<br><br><strong>Point Value:</strong> 1 point = 1.5 cents (conservative)<br><strong>Annual Benefits:</strong> Obsidian $100, Palladium $600","<strong>계산 공식:</strong><br>(연간 포인트 × $0.015) + 연간 남은 Cash + 연간 혜택 - 연회비<br><br><strong>포인트 가치:</strong> 1포인트 = 1.5센트 (보수적)<br><strong>연간 혜택:</strong> Obsidian $100, Palladium $600"
+tooltip_spend_ratio,"Everyday Spend ÷ Housing × 100%<br><br>Determines housing points multiplier in Housing-only option","일상 지출 ÷ 주거비 × 100%<br><br>Housing-only 옵션에서 주거비 포인트 배율을 결정하는 기준"
+tooltip_multiplier,"<strong>Multiplier by Ratio:</strong><br>Under 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X","<strong>Ratio별 배율:</strong><br>25% 미만: 0X (최소 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X"
+tooltip_annual_points,"(Monthly Housing Points + Monthly Everyday Points) × 12 months","(월간 주거비 포인트 + 월간 일상 지출 포인트) × 12개월"
+pts_yr,pts/yr,pts/yr
+api_key_required,Please enter API Key.,API Key를 입력해주세요.
