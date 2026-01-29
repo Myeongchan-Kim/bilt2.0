@@ -24,7 +24,10 @@ function calculate() {
     let everydayMultiplier;
     switch (card) {
         case 'blue': everydayMultiplier = 1; break;
-        case 'obsidian': everydayMultiplier = 1.5; break;
+        case 'obsidian':
+            const obsidianSlider = document.getElementById('obsidianMultiplier');
+            everydayMultiplier = obsidianSlider ? parseFloat(obsidianSlider.value) : 1.5;
+            break;
         case 'palladium': everydayMultiplier = 2; break;
     }
 
@@ -247,11 +250,15 @@ function updateComparison(housingCost, everydaySpend, option, housingMultiplier,
     const cards = ['blue', 'obsidian', 'palladium'];
     const results = [];
 
+    // Get custom Obsidian multiplier
+    const obsidianSlider = document.getElementById('obsidianMultiplier');
+    const customObsidianMult = obsidianSlider ? parseFloat(obsidianSlider.value) : 1.5;
+
     cards.forEach(card => {
         let everydayMultiplier;
         switch (card) {
             case 'blue': everydayMultiplier = 1; break;
-            case 'obsidian': everydayMultiplier = 1.5; break;
+            case 'obsidian': everydayMultiplier = customObsidianMult; break;
             case 'palladium': everydayMultiplier = 2; break;
         }
 

@@ -1,5 +1,19 @@
 // Main application initialization
 
+function updateObsidianSliderState() {
+    const obsidianSection = document.getElementById('obsidianMultSection');
+    const selectedCard = document.querySelector('input[name="card"]:checked');
+
+    if (obsidianSection && selectedCard) {
+        const isObsidian = selectedCard.value === 'obsidian';
+        if (isObsidian) {
+            obsidianSection.classList.add('visible');
+        } else {
+            obsidianSection.classList.remove('visible');
+        }
+    }
+}
+
 async function init() {
     if (window.i18n) {
         await window.i18n.init();
@@ -41,9 +55,25 @@ function setupEventListeners() {
 
     document.querySelectorAll('input[name="card"]').forEach(radio => {
         radio.addEventListener('change', () => {
+            updateObsidianSliderState();
             if (window.calculator) window.calculator.calculate();
         });
     });
+
+    // Obsidian multiplier slider
+    const obsidianSlider = document.getElementById('obsidianMultiplier');
+    const obsidianMultValue = document.getElementById('obsidianMultValue');
+    if (obsidianSlider) {
+        obsidianSlider.addEventListener('input', () => {
+            if (obsidianMultValue) {
+                obsidianMultValue.textContent = obsidianSlider.value + 'X';
+            }
+            if (window.calculator) window.calculator.calculate();
+        });
+    }
+
+    // Initialize slider state
+    updateObsidianSliderState();
 
     document.querySelectorAll('input[name="option"]').forEach(radio => {
         radio.addEventListener('change', () => {

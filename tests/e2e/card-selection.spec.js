@@ -86,11 +86,11 @@ test.describe('Card selection functionality', () => {
     await expect(everydayFormula).toContainText('2X');
     await expect(monthlyEverydayPoints).toContainText('1,000');
 
-    // Switch to Obsidian: 1.5X multiplier
+    // Switch to Obsidian: 2X multiplier (default slider value)
     await page.locator('label[for="cardObsidian"]').click();
     await page.waitForTimeout(200);
-    await expect(everydayFormula).toContainText('1.5X');
-    await expect(monthlyEverydayPoints).toContainText('750');
+    await expect(everydayFormula).toContainText('2X');
+    await expect(monthlyEverydayPoints).toContainText('1,000');
 
     // Switch to Blue: 1X multiplier
     await page.locator('label[for="cardBlue"]').click();

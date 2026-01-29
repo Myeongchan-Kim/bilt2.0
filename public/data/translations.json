@@ -1,230 +1,302 @@
 {
   "site_title": {
     "en": "Card Strategy",
-    "ko": "Card Strategy"
+    "ko": "Card Strategy",
+    "es": "Estrategia de Tarjeta"
   },
   "calculator": {
     "en": "Calculator",
-    "ko": "계산기"
+    "ko": "계산기",
+    "es": "Calculadora"
   },
   "spend_settings": {
     "en": "Spend Settings",
-    "ko": "지출 설정"
+    "ko": "지출 설정",
+    "es": "Configuracion de Gastos"
   },
   "monthly_housing": {
     "en": "Monthly Housing",
-    "ko": "월 주거비"
+    "ko": "월 주거비",
+    "es": "Vivienda Mensual"
   },
   "monthly_everyday": {
     "en": "Monthly Everyday Spend",
-    "ko": "월 일반 지출"
+    "ko": "월 일반 지출",
+    "es": "Gasto Diario Mensual"
   },
   "everyday_spend_short": {
     "en": "Everyday Spend",
-    "ko": "일반 지출"
+    "ko": "일반 지출",
+    "es": "Gasto Diario"
   },
   "housing_short": {
     "en": "Housing",
-    "ko": "주거비"
+    "ko": "주거비",
+    "es": "Vivienda"
   },
   "card_selection": {
     "en": "Card Selection",
-    "ko": "카드 선택"
+    "ko": "카드 선택",
+    "es": "Seleccion de Tarjeta"
   },
   "annual_fee": {
     "en": "Annual Fee",
-    "ko": "연회비"
+    "ko": "연회비",
+    "es": "Cuota Anual"
   },
   "reward_option": {
     "en": "Reward Option",
-    "ko": "리워드 옵션"
+    "ko": "리워드 옵션",
+    "es": "Opcion de Recompensa"
   },
   "housing_only": {
     "en": "Housing-only",
-    "ko": "Housing-only"
+    "ko": "Housing-only",
+    "es": "Housing-only"
   },
   "housing_only_desc": {
     "en": "Auto 0X~1.25X",
-    "ko": "자동 0X~1.25X"
+    "ko": "자동 0X~1.25X",
+    "es": "Auto 0X~1.25X"
   },
   "flexible_cash": {
     "en": "Flexible Cash",
-    "ko": "Flexible Cash"
+    "ko": "Flexible Cash",
+    "es": "Flexible Cash"
   },
   "flexible_cash_desc": {
     "en": "4% Cash + Max 1X",
-    "ko": "4% 캐시 + 최대 1X"
+    "ko": "4% 캐시 + 최대 1X",
+    "es": "4% Cash + Max 1X"
   },
   "results": {
     "en": "Results",
-    "ko": "결과"
+    "ko": "결과",
+    "es": "Resultados"
   },
   "monthly_housing_points": {
     "en": "Monthly Housing Points",
-    "ko": "월 주거비 포인트"
+    "ko": "월 주거비 포인트",
+    "es": "Puntos Mensuales de Vivienda"
   },
   "monthly_everyday_points": {
     "en": "Monthly Everyday Points",
-    "ko": "월 일반 지출 포인트"
+    "ko": "월 일반 지출 포인트",
+    "es": "Puntos Mensuales Diarios"
   },
   "monthly_bilt_cash": {
     "en": "Monthly Bilt Cash",
-    "ko": "월 Bilt Cash"
+    "ko": "월 Bilt Cash",
+    "es": "Bilt Cash Mensual"
   },
   "remaining_bilt_cash": {
     "en": "Remaining Bilt Cash",
-    "ko": "잔여 Bilt Cash"
+    "ko": "잔여 Bilt Cash",
+    "es": "Bilt Cash Restante"
   },
   "annual_total_value": {
     "en": "Annual Total Value (Est.)",
-    "ko": "연간 총 가치 (추정)"
+    "ko": "연간 총 가치 (추정)",
+    "es": "Valor Total Anual (Est.)"
   },
   "everyday_spend_ratio": {
     "en": "Everyday Spend Ratio",
-    "ko": "일반 지출 비율"
+    "ko": "일반 지출 비율",
+    "es": "Proporcion de Gasto Diario"
   },
   "housing_only_multiplier": {
     "en": "Housing-only Multiplier",
-    "ko": "Housing-only 배율"
+    "ko": "Housing-only 배율",
+    "es": "Multiplicador Housing-only"
   },
   "annual_points_total": {
     "en": "Annual Points Total",
-    "ko": "연간 총 포인트"
+    "ko": "연간 총 포인트",
+    "es": "Total de Puntos Anuales"
   },
   "card_comparison": {
     "en": "Card Comparison (Annual)",
-    "ko": "카드 비교 (연간)"
+    "ko": "카드 비교 (연간)",
+    "es": "Comparacion de Tarjetas (Anual)"
   },
   "ai_assistant": {
     "en": "AI Assistant",
-    "ko": "AI 어시스턴트"
+    "ko": "AI 어시스턴트",
+    "es": "Asistente de IA"
   },
   "enter_api_key": {
     "en": "Enter Gemini API Key",
-    "ko": "Gemini API Key 입력"
+    "ko": "Gemini API Key 입력",
+    "es": "Ingrese la Clave API de Gemini"
   },
   "card_helper": {
     "en": "Bilt Card Helper",
-    "ko": "Bilt 카드 도우미"
+    "ko": "Bilt 카드 도우미",
+    "es": "Ayudante de Tarjeta Bilt"
   },
   "ask_questions": {
     "en": "Ask about card selection and reward options.",
-    "ko": "카드 선택과 리워드 옵션에 대해 질문하세요."
+    "ko": "카드 선택과 리워드 옵션에 대해 질문하세요.",
+    "es": "Pregunte sobre seleccion de tarjetas y opciones de recompensa."
   },
   "q_point_vs_cash": {
     "en": "What's the difference between Bilt Points and Bilt Cash?",
-    "ko": "Bilt Points와 Bilt Cash의 차이가 뭔가요?"
+    "ko": "Bilt Points와 Bilt Cash의 차이가 뭔가요?",
+    "es": "Cual es la diferencia entre Bilt Points y Bilt Cash?"
   },
   "q_best_card": {
     "en": "Which card is best for me?",
-    "ko": "어떤 카드가 나한테 좋을까요?"
+    "ko": "어떤 카드가 나한테 좋을까요?",
+    "es": "Cual tarjeta es mejor para mi?"
   },
   "q_option_diff": {
     "en": "Difference between Housing-only and Flexible?",
-    "ko": "Housing-only와 Flexible의 차이는?"
+    "ko": "Housing-only와 Flexible의 차이는?",
+    "es": "Diferencia entre Housing-only y Flexible?"
   },
   "q_current_value": {
     "en": "Which option is better for my values?",
-    "ko": "내 상황에서 어떤 옵션이 더 좋을까요?"
+    "ko": "내 상황에서 어떤 옵션이 더 좋을까요?",
+    "es": "Cual opcion es mejor para mis valores?"
   },
   "enter_question": {
     "en": "Enter your question...",
-    "ko": "질문을 입력하세요..."
+    "ko": "질문을 입력하세요...",
+    "es": "Ingrese su pregunta..."
   },
   "send": {
     "en": "Send",
-    "ko": "전송"
+    "ko": "전송",
+    "es": "Enviar"
   },
   "tooltip_housing_points": {
     "en": "<strong>Housing-only:</strong> Housing x Multiplier (0~1.25X)<br>Multiplier determined by Everyday Spend Ratio<br><br><strong>Flexible:</strong> Unlock with Bilt Cash<br>$3 Cash = 100 points (max 1X)",
-    "ko": "<strong>Housing-only:</strong> 주거비 x 배율 (0~1.25X)<br>배율은 일반 지출 비율에 따라 결정<br><br><strong>Flexible:</strong> Bilt Cash로 잠금 해제<br>$3 Cash = 100 포인트 (최대 1X)"
+    "ko": "<strong>Housing-only:</strong> 주거비 x 배율 (0~1.25X)<br>배율은 일반 지출 비율에 따라 결정<br><br><strong>Flexible:</strong> Bilt Cash로 잠금 해제<br>$3 Cash = 100 포인트 (최대 1X)",
+    "es": "<strong>Housing-only:</strong> Vivienda x Multiplicador (0~1.25X)<br>Multiplicador determinado por la Proporcion de Gasto Diario<br><br><strong>Flexible:</strong> Desbloquear con Bilt Cash<br>$3 Cash = 100 puntos (max 1X)"
   },
   "tooltip_everyday_points": {
     "en": "<strong>Blue:</strong> Everyday Spend x 1X<br><strong>Obsidian:</strong> Avg 1.5X (Travel 2X, Dining/Grocery 3X)<br><strong>Palladium:</strong> Everyday Spend x 2X",
-    "ko": "<strong>Blue:</strong> 일반 지출 x 1X<br><strong>Obsidian:</strong> 평균 1.5X (여행 2X, 식사/식료품 3X)<br><strong>Palladium:</strong> 일반 지출 x 2X"
+    "ko": "<strong>Blue:</strong> 일반 지출 x 1X<br><strong>Obsidian:</strong> 평균 1.5X (여행 2X, 식사/식료품 3X)<br><strong>Palladium:</strong> 일반 지출 x 2X",
+    "es": "<strong>Blue:</strong> Gasto Diario x 1X<br><strong>Obsidian:</strong> Promedio 1.5X (Viajes 2X, Comida/Supermercado 3X)<br><strong>Palladium:</strong> Gasto Diario x 2X"
   },
   "tooltip_monthly_cash": {
     "en": "<strong>Flexible option only</strong><br>Everyday Spend x 4% = Bilt Cash<br><br>No Bilt Cash earned with Housing-only option",
-    "ko": "<strong>Flexible 옵션 전용</strong><br>일반 지출 x 4% = Bilt Cash<br><br>Housing-only 옵션에서는 Bilt Cash 없음"
+    "ko": "<strong>Flexible 옵션 전용</strong><br>일반 지출 x 4% = Bilt Cash<br><br>Housing-only 옵션에서는 Bilt Cash 없음",
+    "es": "<strong>Solo opcion Flexible</strong><br>Gasto Diario x 4% = Bilt Cash<br><br>No se gana Bilt Cash con la opcion Housing-only"
   },
   "tooltip_remaining_cash": {
     "en": "Remaining Bilt Cash after unlocking housing points<br><br><strong>Calculation:</strong> Monthly Cash - (Unlocked Points / 100 x $3)<br><br>Remaining Cash can be used for other purposes",
-    "ko": "주거비 포인트 잠금 해제 후 남은 Bilt Cash<br><br><strong>계산:</strong> 월 캐시 - (해제된 포인트 / 100 x $3)<br><br>남은 캐시는 다른 용도로 사용 가능"
+    "ko": "주거비 포인트 잠금 해제 후 남은 Bilt Cash<br><br><strong>계산:</strong> 월 캐시 - (해제된 포인트 / 100 x $3)<br><br>남은 캐시는 다른 용도로 사용 가능",
+    "es": "Bilt Cash restante despues de desbloquear puntos de vivienda<br><br><strong>Calculo:</strong> Cash Mensual - (Puntos Desbloqueados / 100 x $3)<br><br>El Cash restante se puede usar para otros propositos"
   },
   "tooltip_annual_value": {
     "en": "<strong>Formula:</strong><br>(Annual Points x $0.015) + Annual Remaining Cash + Annual Benefits - Annual Fee<br><br><strong>Point Value:</strong> 1 point = 1.5 cents (conservative)<br><strong>Annual Benefits:</strong> Obsidian $100, Palladium $600",
-    "ko": "<strong>공식:</strong><br>(연간 포인트 x $0.015) + 연간 잔여 캐시 + 연간 혜택 - 연회비<br><br><strong>포인트 가치:</strong> 1 포인트 = 1.5센트 (보수적)<br><strong>연간 혜택:</strong> Obsidian $100, Palladium $600"
+    "ko": "<strong>공식:</strong><br>(연간 포인트 x $0.015) + 연간 잔여 캐시 + 연간 혜택 - 연회비<br><br><strong>포인트 가치:</strong> 1 포인트 = 1.5센트 (보수적)<br><strong>연간 혜택:</strong> Obsidian $100, Palladium $600",
+    "es": "<strong>Formula:</strong><br>(Puntos Anuales x $0.015) + Cash Restante Anual + Beneficios Anuales - Cuota Anual<br><br><strong>Valor del Punto:</strong> 1 punto = 1.5 centavos (conservador)<br><strong>Beneficios Anuales:</strong> Obsidian $100, Palladium $600"
   },
   "tooltip_spend_ratio": {
     "en": "Everyday Spend / Housing x 100%<br><br>Determines housing points multiplier in Housing-only option",
-    "ko": "일반 지출 / 주거비 x 100%<br><br>Housing-only 옵션에서 주거비 포인트 배율 결정"
+    "ko": "일반 지출 / 주거비 x 100%<br><br>Housing-only 옵션에서 주거비 포인트 배율 결정",
+    "es": "Gasto Diario / Vivienda x 100%<br><br>Determina el multiplicador de puntos de vivienda en la opcion Housing-only"
   },
   "tooltip_multiplier": {
     "en": "<strong>Multiplier by Ratio:</strong><br>Under 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X",
-    "ko": "<strong>비율별 배율:</strong><br>25% 미만: 0X (최소 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100% 이상: 1.25X"
+    "ko": "<strong>비율별 배율:</strong><br>25% 미만: 0X (최소 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100% 이상: 1.25X",
+    "es": "<strong>Multiplicador por Proporcion:</strong><br>Menos de 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X"
   },
   "tooltip_annual_points": {
     "en": "(Monthly Housing Points + Monthly Everyday Points) x 12 months",
-    "ko": "(월 주거비 포인트 + 월 일반 지출 포인트) x 12개월"
+    "ko": "(월 주거비 포인트 + 월 일반 지출 포인트) x 12개월",
+    "es": "(Puntos Mensuales de Vivienda + Puntos Mensuales Diarios) x 12 meses"
   },
   "tooltip_housing_input": {
     "en": "<strong>Bilt Housing Payments</strong><br>Rent or mortgage paid through Bilt App<br><br><strong>Also includes:</strong><br>- HOA dues<br>- Utilities<br>- Property taxes<br>- Amenity fees<br>- Gym fees",
-    "ko": "<strong>Bilt 주거비 결제</strong><br>Bilt 앱을 통해 지불하는 월세 또는 모기지<br><br><strong>포함 항목:</strong><br>- HOA 비용<br>- 공과금<br>- 재산세<br>- 편의시설 비용<br>- 헬스장 비용"
+    "ko": "<strong>Bilt 주거비 결제</strong><br>Bilt 앱을 통해 지불하는 월세 또는 모기지<br><br><strong>포함 항목:</strong><br>- HOA 비용<br>- 공과금<br>- 재산세<br>- 편의시설 비용<br>- 헬스장 비용",
+    "es": "<strong>Pagos de Vivienda Bilt</strong><br>Alquiler o hipoteca pagados a traves de la App Bilt<br><br><strong>Tambien incluye:</strong><br>- Cuotas HOA<br>- Servicios publicos<br>- Impuestos de propiedad<br>- Tarifas de amenidades<br>- Cuotas de gimnasio"
   },
   "tooltip_everyday_input": {
     "en": "<strong>Amount you plan to spend with Bilt Card</strong><br>All purchases except housing payments<br><br><strong>Excludes:</strong><br>- Gift cards, prepaid cards<br>- P2P (Venmo, PayPal, Zelle)<br>- Crypto purchases<br>- Cash advances",
-    "ko": "<strong>Bilt 카드로 지출할 금액</strong><br>주거비 결제를 제외한 모든 구매<br><br><strong>제외 항목:</strong><br>- 기프트카드, 선불카드<br>- P2P (Venmo, PayPal, Zelle)<br>- 암호화폐 구매<br>- 현금 서비스"
+    "ko": "<strong>Bilt 카드로 지출할 금액</strong><br>주거비 결제를 제외한 모든 구매<br><br><strong>제외 항목:</strong><br>- 기프트카드, 선불카드<br>- P2P (Venmo, PayPal, Zelle)<br>- 암호화폐 구매<br>- 현금 서비스",
+    "es": "<strong>Cantidad que planea gastar con la Tarjeta Bilt</strong><br>Todas las compras excepto pagos de vivienda<br><br><strong>Excluye:</strong><br>- Tarjetas de regalo, tarjetas prepagadas<br>- P2P (Venmo, PayPal, Zelle)<br>- Compras de criptomonedas<br>- Adelantos de efectivo"
   },
   "pts_yr": {
     "en": "pts/yr",
-    "ko": "pts/년"
+    "ko": "pts/년",
+    "es": "pts/ano"
   },
   "api_key_required": {
     "en": "Please enter API Key.",
-    "ko": "API Key를 입력해주세요."
+    "ko": "API Key를 입력해주세요.",
+    "es": "Por favor ingrese la Clave API."
   },
   "annual_benefits": {
     "en": "Annual Benefits",
-    "ko": "연간 혜택"
+    "ko": "연간 혜택",
+    "es": "Beneficios Anuales"
   },
   "tooltip_annual_fee": {
     "en": "<strong>Annual Fee by Card:</strong><br>Blue: $0<br>Obsidian: $95<br>Palladium: $495",
-    "ko": "<strong>카드별 연회비:</strong><br>Blue: $0<br>Obsidian: $95<br>Palladium: $495"
+    "ko": "<strong>카드별 연회비:</strong><br>Blue: $0<br>Obsidian: $95<br>Palladium: $495",
+    "es": "<strong>Cuota Anual por Tarjeta:</strong><br>Blue: $0<br>Obsidian: $95<br>Palladium: $495"
   },
   "tooltip_annual_benefits": {
     "en": "<strong>Annual Benefits by Card:</strong><br>Blue: $0<br>Obsidian: $100 (Hotel Credit)<br>Palladium: $600 ($200 Bilt Cash + $400 Hotel Credit)",
-    "ko": "<strong>카드별 연간 혜택:</strong><br>Blue: $0<br>Obsidian: $100 (호텔 크레딧)<br>Palladium: $600 ($200 Bilt Cash + $400 호텔 크레딧)"
+    "ko": "<strong>카드별 연간 혜택:</strong><br>Blue: $0<br>Obsidian: $100 (호텔 크레딧)<br>Palladium: $600 ($200 Bilt Cash + $400 호텔 크레딧)",
+    "es": "<strong>Beneficios Anuales por Tarjeta:</strong><br>Blue: $0<br>Obsidian: $100 (Credito de Hotel)<br>Palladium: $600 ($200 Bilt Cash + $400 Credito de Hotel)"
   },
   "tooltip_reward_option": {
     "en": "<strong>Housing-only:</strong><br>Auto 0X~1.25X multiplier based on spend ratio<br><br><strong>Flexible Cash:</strong><br>Earn 4% Bilt Cash on everyday spend<br>Use cash to unlock max 1X housing points",
-    "ko": "<strong>Housing-only:</strong><br>지출 비율에 따라 자동 0X~1.25X 배율<br><br><strong>Flexible Cash:</strong><br>일반 지출에서 4% Bilt Cash 적립<br>캐시로 최대 1X 주거비 포인트 잠금 해제"
+    "ko": "<strong>Housing-only:</strong><br>지출 비율에 따라 자동 0X~1.25X 배율<br><br><strong>Flexible Cash:</strong><br>일반 지출에서 4% Bilt Cash 적립<br>캐시로 최대 1X 주거비 포인트 잠금 해제",
+    "es": "<strong>Housing-only:</strong><br>Multiplicador automatico 0X~1.25X basado en proporcion de gasto<br><br><strong>Flexible Cash:</strong><br>Gana 4% Bilt Cash en gasto diario<br>Usa cash para desbloquear max 1X puntos de vivienda"
   },
   "hotel_value_label": {
     "en": "Hotel Value for You",
-    "ko": "나에게 맞는 호텔 가치"
+    "ko": "나에게 맞는 호텔 가치",
+    "es": "Valor de Hotel para Ti"
   },
   "tooltip_hotel_value": {
     "en": "Let's be honest - how often do you really travel?<br><br>Think about how much <strong>extra hotel spending</strong> you can realistically use each year.",
-    "ko": "우리가 그렇게 호텔을 많이 가는건 아니잖아요?<br><br>당신이 추가로 쓸 수 있는 <strong>호텔 여력</strong>이 얼마인지 생각해봅시다."
+    "ko": "우리가 그렇게 호텔을 많이 가는건 아니잖아요?<br><br>당신이 추가로 쓸 수 있는 <strong>호텔 여력</strong>이 얼마인지 생각해봅시다.",
+    "es": "Seamos honestos - con que frecuencia viajas realmente?<br><br>Piensa en cuanto <strong>gasto extra en hoteles</strong> puedes usar realisticamente cada ano."
   },
   "detail_calculation": {
     "en": "(Detail Calculation)",
-    "ko": "(상세 계산)"
+    "ko": "(상세 계산)",
+    "es": "(Calculo Detallado)"
   },
   "expand": {
     "en": "Expand",
-    "ko": "펼치기"
+    "ko": "펼치기",
+    "es": "Expandir"
   },
   "collapse": {
     "en": "Collapse",
-    "ko": "접기"
+    "ko": "접기",
+    "es": "Contraer"
   },
   "chat_loading": {
     "en": "AI is warming up...",
-    "ko": "AI가 준비운동을 하고 있어요..."
+    "ko": "AI가 준비운동을 하고 있어요...",
+    "es": "La IA se esta calentando..."
   },
   "chat_limit_reached": {
     "en": "Chat limit reached. Please refresh the page.",
-    "ko": "대화 횟수를 초과했습니다. 페이지를 새로고침 해주세요."
+    "ko": "대화 횟수를 초과했습니다. 페이지를 새로고침 해주세요.",
+    "es": "Limite de chat alcanzado. Por favor actualice la pagina."
+  },
+  "tooltip_card_selection": {
+    "en": "<strong>Blue:</strong> 1X on all purchases<br><br><strong>Obsidian*:</strong> Travel 2X, Dining/Grocery 3X, Other 1X<br>→ Adjust avg with slider<br><br><strong>Palladium:</strong> 2X on all purchases",
+    "ko": "<strong>Blue:</strong> 모든 구매 1X<br><br><strong>Obsidian*:</strong> 여행 2X, 식사/식료품 3X, 기타 1X<br>→ 슬라이더로 평균 조절<br><br><strong>Palladium:</strong> 모든 구매 2X",
+    "es": "<strong>Blue:</strong> 1X en todas las compras<br><br><strong>Obsidian*:</strong> Viajes 2X, Comida/Supermercado 3X, Otros 1X<br>→ Ajustar promedio con control<br><br><strong>Palladium:</strong> 2X en todas las compras"
+  },
+  "obsidian_avg_mult": {
+    "en": "Avg X",
+    "ko": "평균 X",
+    "es": "Prom X"
+  },
+  "tooltip_obsidian_mult": {
+    "en": "<strong>Adjust Obsidian multiplier</strong><br>Based on your spending habits:<br><br>• More Dining/Grocery → closer to 3.0X<br>• More Travel → closer to 2.0X<br>• More Other purchases → closer to 1.0X",
+    "ko": "<strong>Obsidian 배율 조정</strong><br>소비 패턴에 따라 조절하세요:<br><br>• 식사/식료품 많음 → 3.0X에 가깝게<br>• 여행 많음 → 2.0X에 가깝게<br>• 기타 지출 많음 → 1.0X에 가깝게",
+    "es": "<strong>Ajustar multiplicador Obsidian</strong><br>Segun tus habitos de gasto:<br><br>• Mas Comida/Supermercado → cerca de 3.0X<br>• Mas Viajes → cerca de 2.0X<br>• Mas Otras compras → cerca de 1.0X"
   }
 }

@@ -91,7 +91,12 @@
                             <!-- === CARD & OPTION SELECTION === -->
                             <div class="input-2d-options" data-testid="selection-options">
                                 <div class="input-2d-cards" data-testid="card-selection">
-                                    <h4 data-i18n="card_selection">Card Selection</h4>
+                                    <h4 class="label-with-help">
+                                        <span data-i18n="card_selection">Card Selection</span>
+                                        <button class="help-btn small" type="button">?
+                                            <div class="tooltip" data-i18n-html="tooltip_card_selection"><strong>*Obsidian multiplier:</strong><br>Travel 2X, Dining/Grocery 3X, Other 1X<br>→ Averaged to 1.5X for calculation</div>
+                                        </button>
+                                    </h4>
                                     <div class="card-options-vertical">
                                         <div class="radio-option">
                                             <input type="radio" name="card" id="cardBlue" value="blue">
@@ -99,7 +104,19 @@
                                         </div>
                                         <div class="radio-option">
                                             <input type="radio" name="card" id="cardObsidian" value="obsidian">
-                                            <label for="cardObsidian">Obsidian <span class="card-fee">$95</span></label>
+                                            <label for="cardObsidian">Obsidian* <span class="card-fee">$95</span></label>
+                                        </div>
+                                        <div class="obsidian-mult-section" id="obsidianMultSection" data-testid="obsidian-multiplier">
+                                            <div class="obsidian-mult-header">
+                                                <span class="obsidian-mult-label label-with-help">
+                                                    <span data-i18n="obsidian_avg_mult">Avg X</span>
+                                                    <button class="help-btn small" type="button">?
+                                                        <div class="tooltip" data-i18n-html="tooltip_obsidian_mult"></div>
+                                                    </button>
+                                                </span>
+                                                <span class="obsidian-mult-value" id="obsidianMultValue">2.0X</span>
+                                            </div>
+                                            <input type="range" id="obsidianMultiplier" min="1.0" max="3.0" step="0.1" value="2.0">
                                         </div>
                                         <div class="radio-option">
                                             <input type="radio" name="card" id="cardPalladium" value="palladium" checked>

@@ -24,7 +24,7 @@ test.describe('i18n (internationalization) functionality', () => {
     // Default should be English
     await expect(resultsHeader).toHaveText('Results');
 
-    // Toggle to Korean using JavaScript
+    // Toggle to Korean using JavaScript (en → ko)
     await page.evaluate(() => {
       window.i18n.toggle();
     });
@@ -32,30 +32,36 @@ test.describe('i18n (internationalization) functionality', () => {
 
     // Check that Korean translations are applied
     await expect(resultsHeader).toHaveText('결과');
-    await expect(langToggle).toHaveText('English');
+    // Button shows next language (Español)
+    await expect(langToggle).toHaveText('Español');
 
     const cardComparison = page.locator('[data-i18n="card_comparison"]');
     await expect(cardComparison).toHaveText('카드 비교 (연간)');
   });
 
-  test('should toggle back to English', async ({ page }) => {
+  test('should cycle through all three languages', async ({ page }) => {
     const langToggle = page.locator('#langToggle');
     const resultsHeader = page.locator('[data-i18n="results"]');
 
-    // Switch to Korean first
-    await page.evaluate(() => {
-      window.i18n.toggle();
-    });
+    // Default: English, button shows 한국어
+    await expect(resultsHeader).toHaveText('Results');
+    await expect(langToggle).toHaveText('한국어');
+
+    // Toggle 1: en → ko
+    await page.evaluate(() => window.i18n.toggle());
     await page.waitForTimeout(500);
     await expect(resultsHeader).toHaveText('결과');
+    await expect(langToggle).toHaveText('Español');
 
-    // Switch back to English
-    await page.evaluate(() => {
-      window.i18n.toggle();
-    });
+    // Toggle 2: ko → es
+    await page.evaluate(() => window.i18n.toggle());
     await page.waitForTimeout(500);
+    await expect(resultsHeader).toHaveText('Resultados');
+    await expect(langToggle).toHaveText('English');
 
-    // Check English translations
+    // Toggle 3: es → en (back to English)
+    await page.evaluate(() => window.i18n.toggle());
+    await page.waitForTimeout(500);
     await expect(resultsHeader).toHaveText('Results');
     await expect(langToggle).toHaveText('한국어');
   });

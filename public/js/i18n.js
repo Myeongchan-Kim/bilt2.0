@@ -2,6 +2,9 @@
 let translations = {};
 let currentLang = 'en';
 
+const languages = ['en', 'ko', 'es'];
+const langNames = { en: 'English', ko: '한국어', es: 'Español' };
+
 async function loadTranslations() {
     try {
         const response = await fetch('/api/translations?lang=' + currentLang);
@@ -63,14 +66,17 @@ function applyTranslations() {
 
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
-        langToggle.textContent = currentLang === 'en' ? '한국어' : 'English';
+        const nextIndex = (languages.indexOf(currentLang) + 1) % languages.length;
+        langToggle.textContent = langNames[languages[nextIndex]];
     }
 
     document.title = 'BILT 2.0 ' + (translations['site_title'] || 'Card Strategy');
 }
 
 function toggleLanguage() {
-    currentLang = currentLang === 'en' ? 'ko' : 'en';
+    const currentIndex = languages.indexOf(currentLang);
+    const nextIndex = (currentIndex + 1) % languages.length;
+    currentLang = languages[nextIndex];
     localStorage.setItem('bilt_lang', currentLang);
     loadTranslations();
 }
