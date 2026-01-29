@@ -108,7 +108,7 @@ function updateComparison(housingCost, everydaySpend, option, housingMultiplier)
         const annualBiltCash = remainingBiltCash * 12;
         const annualValue = (annualPoints * 0.015) + annualBiltCash + annualBenefits - annualFee;
 
-        results.push({ card, value: annualValue, points: annualPoints });
+        results.push({ card, value: annualValue, points: annualPoints, fee: annualFee });
     });
 
     const maxValue = Math.max(...results.map(r => r.value));
@@ -119,6 +119,7 @@ function updateComparison(housingCost, everydaySpend, option, housingMultiplier)
             <div class="card-name">${r.card.charAt(0).toUpperCase() + r.card.slice(1)}</div>
             <div class="card-value">$${r.value.toFixed(0)}</div>
             <div class="card-detail">${Math.round(r.points).toLocaleString()} pts/yr</div>
+            <div class="card-fee-info">-$${r.fee} fee</div>
             ${r.value === maxValue ? '<span class="best-badge">BEST</span>' : ''}
         </div>
     `).join('');

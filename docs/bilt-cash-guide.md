@@ -46,9 +46,27 @@
 |------|------|
 | Bilt Cash → Bilt Points (주거비용) | $3 = 100 포인트 |
 
+## Bilt Points를 Statement Credit으로 사용
+
+Bilt Points를 카드 잔액 결제에 사용할 수 있습니다.
+
+### 사용 조건
+- **최소**: 1,000 포인트부터 사용 가능
+- **최대**: 카드 잔액 또는 $100,000 상당 중 적은 금액
+- Statement Credit은 **원금(principal balance)**에 적용됨
+- **최소 결제액(minimum payment)에는 적용되지 않음** - 별도로 결제 필요
+
+### 처리 시간
+- 포인트 차감: 5~7 영업일
+- Statement Credit 반영: 5~7 영업일
+- 한번 사용한 포인트는 취소 불가
+
+---
+
 ## 주의사항
 
 1. **선택 필수**: Rewards Option에서 Flexible Bilt Cash Option을 선택해야 적립됨
 2. **기본 옵션**: 선택하지 않으면 Flexible Bilt Cash Option이 기본값
 3. **변경 가능**: Billing Cycle 마지막 날까지 옵션 변경 가능 (다음 Billing Cycle부터 적용)
 4. **만료 주의**: Bilt Cash는 만료될 수 있으므로 사용 조건 확인 필요
+5. **Good Standing 필수**: 카드 계좌가 연체, 한도 초과, 사기 조사 중이면 적립/사용 불가

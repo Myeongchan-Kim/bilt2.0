@@ -366,6 +366,12 @@ header h1 span {
     color: rgba(255, 255, 255, 0.5);
 }
 
+.comparison-card .card-fee-info {
+    font-size: 0.7rem;
+    color: rgba(255, 100, 100, 0.6);
+    margin-top: 2px;
+}
+
 .best-badge {
     background: #ffd700;
     color: #1a1a2e;

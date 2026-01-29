@@ -111,6 +111,10 @@
     "en": "Ask about card selection and reward options.",
     "ko": "Ask about card selection and reward options."
   },
+  "q_point_vs_cash": {
+    "en": "What's the difference between Bilt Points and Bilt Cash?",
+    "ko": "What's the difference between Bilt Points and Bilt Cash?"
+  },
   "q_best_card": {
     "en": "Which card is best for me?",
     "ko": "Which card is best for me?"
