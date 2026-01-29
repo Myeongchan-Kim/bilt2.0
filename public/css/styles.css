@@ -9,11 +9,10 @@ body {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     min-height: 100vh;
     color: #fff;
-    overflow-x: hidden;
 }
 
 html {
-    overflow-x: hidden;
+    overflow-x: clip; /* clip doesn't affect overflow-y, unlike hidden */
 }
 
 header {
@@ -165,7 +164,6 @@ header > .bmc-btn {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    height: 100%;
 }
 
 .panel-header {
@@ -1831,9 +1829,36 @@ header > .bmc-btn {
         gap: 6px;
     }
 
-    /* Compact comparison cards on mobile */
+    /* Fixed comparison at bottom on mobile */
     .comparison {
-        padding: 12px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 8px 12px;
+        background: rgba(26, 26, 46, 0.98);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 215, 0, 0.3);
+        z-index: 100;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hide comparison header on mobile (save space) */
+    .comparison-header {
+        display: none;
+    }
+
+    /* Remove collapsed state on mobile - always visible */
+    .comparison.collapsed .comparison-content {
+        display: grid !important;
+        max-height: none !important;
+    }
+
+    /* Add bottom padding to body to prevent content from being hidden behind fixed footer */
+    body {
+        padding-bottom: 120px;
     }
 
     .comparison-card {
