@@ -695,7 +695,7 @@
         .input-2d-area {
             position: relative;
             width: 100%;
-            height: 75px;
+            height: 150px;
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.15) 100%);
             border: 2px solid rgba(255, 215, 0, 0.3);
             border-radius: 8px;
@@ -772,47 +772,105 @@
 
         .input-2d-y-scale {
             position: absolute;
-            left: -44px;
+            left: -34px;
             top: 0;
             bottom: 0;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             color: rgba(255, 255, 255, 0.4);
             text-align: right;
-            width: 40px;
+            width: 32px;
         }
 
         .input-2d-area-wrapper {
             position: relative;
-            margin-left: 48px;
+            margin-left: 36px;
         }
 
         /* 2D + Manual Input Layout */
         .input-2d-row {
             display: flex;
-            gap: 20px;
-            align-items: stretch;
+            gap: 16px;
+            align-items: center;
         }
 
         .input-2d-left {
-            flex: 1;
-            min-width: 0;
+            width: 280px;
+            flex-shrink: 0;
         }
 
         .input-2d-right {
-            width: 140px;
+            width: 150px;
             display: flex;
             flex-direction: column;
             gap: 12px;
             justify-content: center;
+            overflow: visible;
+            flex-shrink: 0;
+        }
+
+        .input-2d-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .input-2d-cards h4 {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .card-options-vertical {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .card-options-vertical .radio-option {
+            min-width: auto;
+            flex: none;
+        }
+
+        .card-options-vertical .radio-option label {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-fee {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .card-options-vertical .radio-option input:checked + label .card-fee {
+            color: rgba(255, 215, 0, 0.8);
         }
 
         .manual-input-group {
             display: flex;
             flex-direction: column;
             gap: 4px;
+            position: relative;
+        }
+
+        .manual-input-group .tooltip {
+            left: auto;
+            right: 0;
+            transform: none;
+        }
+
+        .manual-input-group .tooltip::after {
+            left: auto;
+            right: 10px;
+            transform: none;
         }
 
         .manual-input-group label {
@@ -975,13 +1033,13 @@
                                                 <div class="input-2d-point" id="input2dPoint"></div>
                                             </div>
                                         </div>
-                                        <div class="input-2d-x-label">→ <span data-i18n="everyday_spend_short">Everyday Spend</span></div>
                                         <div class="input-2d-scale">
                                             <span>$0</span>
                                             <span>$1k</span>
                                             <span>$2k</span>
                                             <span>$3k</span>
                                         </div>
+                                        <div class="input-2d-x-label"><span data-i18n="everyday_spend_short">Everyday Spend</span> →</div>
                                     </div>
                                 </div>
                             </div>
@@ -993,7 +1051,7 @@
                                             <div class="tooltip" data-i18n-html="tooltip_housing_input"></div>
                                         </button>
                                     </label>
-                                    <input type="number" id="housingCost" value="2000" min="0" max="10000" step="50" oninput="onManualInput()">
+                                    <input type="number" id="housingCost" value="2500" min="0" max="10000" step="50" oninput="onManualInput()">
                                 </div>
                                 <div class="manual-input-group">
                                     <label class="label-with-help">
@@ -1002,35 +1060,25 @@
                                             <div class="tooltip" data-i18n-html="tooltip_everyday_input"></div>
                                         </button>
                                     </label>
-                                    <input type="number" id="everydaySpend" value="1500" min="0" max="10000" step="50" oninput="onManualInput()">
+                                    <input type="number" id="everydaySpend" value="500" min="0" max="10000" step="50" oninput="onManualInput()">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="radio-group">
-                        <h3 data-i18n="card_selection">Card Selection</h3>
-                        <div class="radio-options">
-                            <div class="radio-option">
-                                <input type="radio" name="card" id="cardBlue" value="blue" onchange="calculate()">
-                                <label for="cardBlue">
-                                    Blue
-                                    <div class="card-info"><span data-i18n="annual_fee">Annual Fee</span> $0</div>
-                                </label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="card" id="cardObsidian" value="obsidian" onchange="calculate()">
-                                <label for="cardObsidian">
-                                    Obsidian
-                                    <div class="card-info"><span data-i18n="annual_fee">Annual Fee</span> $95</div>
-                                </label>
-                            </div>
-                            <div class="radio-option">
-                                <input type="radio" name="card" id="cardPalladium" value="palladium" checked onchange="calculate()">
-                                <label for="cardPalladium">
-                                    Palladium
-                                    <div class="card-info"><span data-i18n="annual_fee">Annual Fee</span> $495</div>
-                                </label>
+                            <div class="input-2d-cards">
+                                <h4 data-i18n="card_selection">Card Selection</h4>
+                                <div class="card-options-vertical">
+                                    <div class="radio-option">
+                                        <input type="radio" name="card" id="cardBlue" value="blue" onchange="calculate()">
+                                        <label for="cardBlue">Blue <span class="card-fee">$0</span></label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="card" id="cardObsidian" value="obsidian" onchange="calculate()">
+                                        <label for="cardObsidian">Obsidian <span class="card-fee">$95</span></label>
+                                    </div>
+                                    <div class="radio-option">
+                                        <input type="radio" name="card" id="cardPalladium" value="palladium" checked onchange="calculate()">
+                                        <label for="cardPalladium">Palladium <span class="card-fee">$495</span></label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
