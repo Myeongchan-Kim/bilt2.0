@@ -66,18 +66,17 @@ class handler(BaseHTTPRequestHandler):
             genai.configure(api_key=api_key)
             model = genai.GenerativeModel('gemini-2.0-flash')
 
-            context_str = f"""[Current User Status]
-- Monthly Housing: ${context.get('housing', 0):,.0f}
-- Monthly Everyday Spend: ${context.get('everydaySpend', 0):,.0f}
-- Selected Card: {context.get('card', 'unknown').capitalize()}
-- Selected Option: {context.get('option', 'unknown').replace('_', ' ').title()}
-- Hotel Value Setting: ${context.get('hotelValue', 100)}
-- Spend Ratio: {context.get('spendRatio', 'N/A')}
-- Housing Multiplier: {context.get('housingMultiplier', 'N/A')}
-- Monthly Housing Points: {context.get('monthlyHousingPoints', 'N/A')}
-- Monthly Everyday Points: {context.get('monthlyEverydayPoints', 'N/A')}
-- Annual Points: {context.get('annualPoints', 'N/A')}
-- Annual Value: {context.get('annualValue', 'N/A')}"""
+            # Use detailed summary if available, otherwise fallback to basic info
+            if context.get('summary'):
+                context_str = context.get('summary')
+            else:
+                # Fallback for older clients
+                inputs = context.get('inputs', context)
+                context_str = f"""[Current User Status]
+- Monthly Housing: ${inputs.get('housingCost', inputs.get('housing', 0)):,.0f}
+- Monthly Everyday Spend: ${inputs.get('everydaySpend', 0):,.0f}
+- Selected Card: {inputs.get('card', 'unknown').capitalize()}
+- Selected Option: {inputs.get('option', 'unknown').replace('_', ' ').title()}"""
 
             full_message = f"{context_str}\n\nUser Question: {message}"
 

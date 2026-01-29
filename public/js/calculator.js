@@ -364,14 +364,21 @@ function updateComparison(housingCost, everydaySpend, option, housingMultiplier,
 }
 
 function getCalculatorContext() {
+    // ===== INPUT VALUES =====
     const housingCost = parseFloat(document.getElementById('housingCost').value) || 0;
     const everydaySpend = parseFloat(document.getElementById('everydaySpend').value) || 0;
     const card = document.querySelector('input[name="card"]:checked').value;
     const option = document.querySelector('input[name="option"]:checked').value;
     const hotelInput = document.querySelector('input[name="hotelValue"]:checked');
-    const hotelValue = hotelInput ? parseInt(hotelInput.value) : 100;
+    const userHotelValue = hotelInput ? parseInt(hotelInput.value) : 100;
 
-    // Calculate key metrics
+    // Slider values
+    const obsidianSlider = document.getElementById('obsidianMultiplier');
+    const obsidianMultiplier = obsidianSlider ? parseFloat(obsidianSlider.value) : 1.5;
+    const biltCashSlider = document.getElementById('biltCashValue');
+    const biltCashMultiplier = biltCashSlider ? parseFloat(biltCashSlider.value) : 0.5;
+
+    // ===== RATIO & MULTIPLIERS =====
     const ratio = housingCost > 0 ? (everydaySpend / housingCost) : 0;
     const ratioPercent = (ratio * 100).toFixed(1);
 
@@ -382,24 +389,186 @@ function getCalculatorContext() {
     else if (ratio < 1.00) housingMultiplier = 1.0;
     else housingMultiplier = 1.25;
 
-    // Get displayed results
-    const monthlyHousingPts = document.getElementById('monthlyHousingPoints')?.textContent || '0';
-    const monthlyEverydayPts = document.getElementById('monthlyEverydayPoints')?.textContent || '0';
-    const annualPts = document.getElementById('annualPoints')?.textContent || '0';
-    const annualValue = document.getElementById('annualValue')?.textContent || '$0';
+    let everydayMultiplier;
+    switch (card) {
+        case 'blue': everydayMultiplier = 1; break;
+        case 'obsidian': everydayMultiplier = obsidianMultiplier; break;
+        case 'palladium': everydayMultiplier = 2; break;
+    }
+
+    // ===== CARD BENEFITS & FEES =====
+    let annualFee = 0, maxHotelCredit = 0, annualCashBonus = 0;
+    let bonusCash = 0, bonusPoints = 0;
+
+    switch (card) {
+        case 'blue':
+            annualFee = 0; maxHotelCredit = 0; annualCashBonus = 0;
+            bonusCash = 100; bonusPoints = 0;
+            break;
+        case 'obsidian':
+            annualFee = 95; maxHotelCredit = 100; annualCashBonus = 0;
+            bonusCash = 200; bonusPoints = 0;
+            break;
+        case 'palladium':
+            annualFee = 495; maxHotelCredit = 400; annualCashBonus = 200;
+            bonusCash = 300; bonusPoints = 50000;
+            break;
+    }
+
+    const actualHotelCredit = Math.min(userHotelValue, maxHotelCredit);
+    const annualBenefits = actualHotelCredit + annualCashBonus;
+
+    // ===== MONTHLY CALCULATIONS =====
+    let monthlyHousingPoints, monthlyBiltCash, usedBiltCash, remainingBiltCash, unlockablePoints;
+
+    const monthlyEverydayPoints = everydaySpend * everydayMultiplier;
+
+    if (option === 'housing') {
+        monthlyHousingPoints = housingCost * housingMultiplier;
+        if (housingMultiplier === 0 && housingCost > 0) {
+            monthlyHousingPoints = 250;
+        }
+        monthlyBiltCash = 0;
+        usedBiltCash = 0;
+        remainingBiltCash = 0;
+        unlockablePoints = 0;
+    } else {
+        monthlyBiltCash = everydaySpend * 0.04;
+        unlockablePoints = (monthlyBiltCash / 3) * 100;
+        monthlyHousingPoints = Math.min(unlockablePoints, housingCost);
+        usedBiltCash = (monthlyHousingPoints / 100) * 3;
+        remainingBiltCash = monthlyBiltCash - usedBiltCash;
+    }
+
+    // ===== ANNUAL CALCULATIONS =====
+    const annualPoints = (monthlyHousingPoints + monthlyEverydayPoints) * 12;
+    const annualPointsValue = Math.round(annualPoints * 0.015);
+    const annualRemainingBiltCash = remainingBiltCash * 12 * biltCashMultiplier;
+    const annualValue = annualPointsValue + annualRemainingBiltCash + annualBenefits - annualFee;
+
+    // ===== WELCOME BONUS =====
+    const bonusPointsValue = Math.round(bonusPoints * 0.015);
+    const totalWelcomeBonus = bonusCash + bonusPointsValue;
+    const firstYearValue = annualValue + totalWelcomeBonus;
+
+    // ===== BUILD CONTEXT STRING =====
+    let contextText = `=== CURRENT CALCULATOR STATE ===
+
+[User Inputs]
+- Monthly Housing: $${housingCost.toLocaleString()}
+- Monthly Everyday Spend: $${everydaySpend.toLocaleString()}
+- Card: ${card.charAt(0).toUpperCase() + card.slice(1)}
+- Reward Option: ${option === 'housing' ? 'Housing-only' : 'Flexible'}
+- Hotel Value for User: $${userHotelValue}`;
+
+    if (card === 'obsidian') {
+        contextText += `\n- Obsidian Avg Multiplier: ${obsidianMultiplier}X`;
+    }
+    if (option === 'flexible') {
+        contextText += `\n- Bilt Cash Value: $${biltCashMultiplier.toFixed(2)} per $1`;
+    }
+
+    contextText += `
+
+[Step 1: Spend Ratio & Multipliers]
+- Spend Ratio = (Everyday $${everydaySpend}) / (Housing $${housingCost}) = ${ratioPercent}%
+- Housing-only Multiplier = ${housingMultiplier}X (based on ratio tiers: <25%=0X, 25-50%=0.5X, 50-75%=0.75X, 75-100%=1X, 100%+=1.25X)
+- Everyday Multiplier = ${everydayMultiplier}X (${card})
+
+[Step 2: Monthly Points Calculation]`;
+
+    if (option === 'housing') {
+        if (housingMultiplier === 0 && housingCost > 0) {
+            contextText += `
+- Monthly Housing Points = min(250, $${housingCost} × ${housingMultiplier}X) = 250 pts (minimum guarantee)`;
+        } else {
+            contextText += `
+- Monthly Housing Points = $${housingCost} × ${housingMultiplier}X = ${Math.round(monthlyHousingPoints).toLocaleString()} pts`;
+        }
+    } else {
+        contextText += `
+- Monthly Bilt Cash Earned = $${everydaySpend} × 4% = $${monthlyBiltCash.toFixed(2)}
+- Unlockable Housing Points = ($${monthlyBiltCash.toFixed(2)} ÷ $3) × 100 = ${Math.round(unlockablePoints).toLocaleString()} pts
+- Monthly Housing Points = min(${Math.round(unlockablePoints).toLocaleString()}, ${housingCost.toLocaleString()}) = ${Math.round(monthlyHousingPoints).toLocaleString()} pts
+- Bilt Cash Used = (${Math.round(monthlyHousingPoints)} pts ÷ 100) × $3 = $${usedBiltCash.toFixed(2)}
+- Remaining Bilt Cash = $${monthlyBiltCash.toFixed(2)} - $${usedBiltCash.toFixed(2)} = $${remainingBiltCash.toFixed(2)}/month`;
+    }
+
+    contextText += `
+- Monthly Everyday Points = $${everydaySpend} × ${everydayMultiplier}X = ${Math.round(monthlyEverydayPoints).toLocaleString()} pts
+
+[Step 3: Annual Calculations]
+- Annual Points = (${Math.round(monthlyHousingPoints).toLocaleString()} + ${Math.round(monthlyEverydayPoints).toLocaleString()}) × 12 = ${Math.round(annualPoints).toLocaleString()} pts
+- Annual Points Value = ${Math.round(annualPoints).toLocaleString()} pts × $0.015 = $${annualPointsValue}`;
+
+    if (option === 'flexible') {
+        contextText += `
+- Annual Remaining Bilt Cash = $${remainingBiltCash.toFixed(2)} × 12 × ${biltCashMultiplier.toFixed(2)} = $${Math.round(annualRemainingBiltCash)}`;
+    }
+
+    contextText += `
+
+[Step 4: Card Benefits & Fees]
+- Annual Fee = $${annualFee} (${card})
+- Max Hotel Credit = $${maxHotelCredit}, User Value = $${userHotelValue}, Actual = $${actualHotelCredit}
+- Annual Cash Bonus = $${annualCashBonus}
+- Total Annual Benefits = $${actualHotelCredit} + $${annualCashBonus} = $${annualBenefits}
+
+[Step 5: Final Annual Value]
+- Annual Value = $${annualPointsValue} (points)`;
+    if (option === 'flexible') {
+        contextText += ` + $${Math.round(annualRemainingBiltCash)} (remaining Bilt Cash)`;
+    }
+    contextText += ` + $${annualBenefits} (benefits) - $${annualFee} (fee) = $${Math.round(annualValue)}/year
+
+[Step 6: Welcome Bonus (First Year Only)]
+- Bonus Cash = $${bonusCash}`;
+    if (bonusPoints > 0) {
+        contextText += `
+- Bonus Points = ${bonusPoints.toLocaleString()} pts × $0.015 = $${bonusPointsValue}`;
+    }
+    contextText += `
+- Total Welcome Bonus = $${totalWelcomeBonus}
+
+[Summary]
+- First Year Value = $${Math.round(annualValue)} + $${totalWelcomeBonus} = $${Math.round(firstYearValue)}
+- Year 2+ Value = $${Math.round(annualValue)}/year`;
 
     return {
-        housing: housingCost,
-        everydaySpend: everydaySpend,
-        card: card,
-        option: option,
-        hotelValue: hotelValue,
-        spendRatio: ratioPercent + '%',
-        housingMultiplier: housingMultiplier + 'X',
-        monthlyHousingPoints: monthlyHousingPts,
-        monthlyEverydayPoints: monthlyEverydayPts,
-        annualPoints: annualPts,
-        annualValue: annualValue
+        // Raw values for programmatic use
+        inputs: {
+            housingCost,
+            everydaySpend,
+            card,
+            option,
+            userHotelValue,
+            obsidianMultiplier,
+            biltCashMultiplier
+        },
+        calculations: {
+            ratioPercent,
+            housingMultiplier,
+            everydayMultiplier,
+            monthlyHousingPoints,
+            monthlyEverydayPoints,
+            monthlyBiltCash,
+            usedBiltCash,
+            remainingBiltCash,
+            unlockablePoints,
+            annualPoints,
+            annualPointsValue,
+            annualRemainingBiltCash,
+            annualBenefits,
+            annualFee,
+            annualValue,
+            bonusCash,
+            bonusPoints,
+            bonusPointsValue,
+            totalWelcomeBonus,
+            firstYearValue
+        },
+        // Plain text summary for AI
+        summary: contextText
     };
 }
 
