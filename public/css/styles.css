@@ -160,7 +160,6 @@ header > .bmc-btn {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    overflow: hidden;
     height: 100%;
 }
 
@@ -170,6 +169,7 @@ header > .bmc-btn {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-weight: 600;
     font-size: 1.1rem;
+    border-radius: 16px 16px 0 0;
 }
 
 /* Calculator Panel */
@@ -1039,10 +1039,15 @@ header > .bmc-btn {
 
 /* 2D Input Selector */
 .input-2d-container {
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.85);
     border-radius: 12px;
     padding: 16px;
     margin-bottom: 8px;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .input-2d-header {
