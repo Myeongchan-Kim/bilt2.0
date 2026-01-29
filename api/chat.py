@@ -44,7 +44,8 @@ class RateLimiter:
         return True
 
 
-# Global rate limiter instance
+# Note: In-memory rate limiter resets on serverless cold starts.
+# For production, consider Upstash Redis for persistent rate limiting.
 rate_limiter = RateLimiter(max_requests=10, window_seconds=60)
 
 SYSTEM_PROMPT = """You are a professional assistant helping with Bilt card selection and reward optimization.
