@@ -145,9 +145,9 @@
     "es": "Cual es la diferencia entre Bilt Points y Bilt Cash?"
   },
   "q_best_card": {
-    "en": "Which card is best for me?",
-    "ko": "어떤 카드가 나한테 좋을까요?",
-    "es": "Cual tarjeta es mejor para mi?"
+    "en": "Based on my selections, any advice for me?",
+    "ko": "지금 선택한 값으로 볼때 나에게 해주고 싶은 말이 있어?",
+    "es": "Segun mis selecciones, tienes algun consejo para mi?"
   },
   "q_option_diff": {
     "en": "Difference between Housing-only and Flexible?",

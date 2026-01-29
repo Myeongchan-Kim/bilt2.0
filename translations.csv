@@ -27,7 +27,7 @@ ai_assistant,AI Assistant,AI 어시스턴트
 enter_api_key,Enter Gemini API Key,Gemini API Key 입력
 card_helper,Bilt Card Helper,Bilt 카드 도우미
 ask_questions,Ask about card selection and reward options.,카드 선택과 리워드 옵션 등을 물어보세요.
-q_best_card,Which card is best for me?,어떤 카드가 저에게 가장 좋을까요?
+q_best_card,Based on my selections, any advice for me?,지금 선택한 값으로 볼때 나에게 해주고 싶은 말이 있어?
 q_option_diff,Difference between Housing-only and Flexible?,Housing-only와 Flexible 차이점은?
 q_current_value,Which option is better for my values?,현재 값 기준 어떤 옵션이 유리?
 enter_question,Enter your question...,질문 입력...
