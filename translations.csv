@@ -40,5 +40,7 @@ tooltip_annual_value,"<strong>Formula:</strong><br>(Annual Points × $0.015) + A
 tooltip_spend_ratio,"Everyday Spend ÷ Housing × 100%<br><br>Determines housing points multiplier in Housing-only option","일상 지출 ÷ 주거비 × 100%<br><br>Housing-only 옵션에서 주거비 포인트 배율을 결정하는 기준"
 tooltip_multiplier,"<strong>Multiplier by Ratio:</strong><br>Under 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X","<strong>Ratio별 배율:</strong><br>25% 미만: 0X (최소 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X"
 tooltip_annual_points,"(Monthly Housing Points + Monthly Everyday Points) × 12 months","(월간 주거비 포인트 + 월간 일상 지출 포인트) × 12개월"
+tooltip_housing_input,"<strong>Bilt Housing Payments</strong><br>Rent or mortgage paid through Bilt App<br><br><strong>Also includes:</strong><br>• HOA dues<br>• Utilities<br>• Property taxes<br>• Amenity fees<br>• Gym fees","<strong>Bilt 주거비 결제</strong><br>Bilt 앱으로 결제하는 월세 또는 모기지<br><br><strong>포함 항목:</strong><br>• HOA 비용<br>• 공과금<br>• 재산세<br>• 편의시설 비용<br>• 헬스장 비용"
+tooltip_everyday_input,"<strong>Amount you plan to spend with Bilt Card</strong><br>All purchases except housing payments<br><br><strong>Excludes:</strong><br>• Gift cards, prepaid cards<br>• P2P (Venmo, PayPal, Zelle)<br>• Crypto purchases<br>• Cash advances","<strong>Bilt 카드로 쓸 금액</strong><br>주거비 외 모든 구매<br><br><strong>제외 항목:</strong><br>• 기프트 카드, 선불 카드<br>• P2P (Venmo, PayPal, Zelle)<br>• 암호화폐 구매<br>• 현금 서비스"
 pts_yr,pts/yr,pts/yr
 api_key_required,Please enter API Key.,API Key를 입력해주세요.

@@ -36,11 +36,17 @@
             color: #ffd700;
         }
 
-        .lang-toggle {
+        .header-buttons {
             position: absolute;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .lang-toggle {
             padding: 8px 16px;
             background: rgba(255, 215, 0, 0.2);
             border: 1px solid rgba(255, 215, 0, 0.4);
@@ -53,6 +59,30 @@
 
         .lang-toggle:hover {
             background: rgba(255, 215, 0, 0.3);
+        }
+
+        .bmc-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            background: #FFDD00;
+            border-radius: 20px;
+            color: #000;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .bmc-btn:hover {
+            background: #ffed4a;
+            transform: translateY(-1px);
+        }
+
+        .bmc-btn svg {
+            width: 16px;
+            height: 16px;
         }
 
         header {
@@ -665,7 +695,7 @@
         .input-2d-area {
             position: relative;
             width: 100%;
-            height: 150px;
+            height: 75px;
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.15) 100%);
             border: 2px solid rgba(255, 215, 0, 0.3);
             border-radius: 8px;
@@ -684,7 +714,7 @@
             background:
                 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
                 linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 20% 25%;
+            background-size: 33.33% 20%;
         }
 
         .input-2d-point {
@@ -903,7 +933,15 @@
 <body>
     <header>
         <h1>BILT <span>2.0</span> <span data-i18n="site_title">Card Strategy</span></h1>
-        <button class="lang-toggle" onclick="toggleLanguage()" id="langToggle">한국어</button>
+        <div class="header-buttons">
+            <a href="https://buymeacoffee.com/myeongchanv" target="_blank" rel="noopener" class="bmc-btn" title="Even $3 helps! Thank you!">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.216 6.415l-.132-.666c-.119-.598-.388-1.163-1.001-1.379-.197-.069-.42-.098-.57-.241-.152-.143-.196-.366-.231-.572-.065-.378-.125-.756-.192-1.133-.057-.325-.102-.69-.25-.987-.195-.4-.597-.634-.996-.788a5.723 5.723 0 00-.626-.194c-1-.263-2.05-.36-3.077-.416a25.834 25.834 0 00-3.7.062c-.915.083-1.88.184-2.75.5-.318.116-.646.256-.888.501-.297.302-.393.77-.177 1.146.154.267.415.456.692.58.36.162.737.284 1.123.366 1.075.238 2.189.331 3.287.37 1.218.05 2.437.01 3.65-.118.299-.033.598-.073.896-.119.352-.054.578-.513.474-.834-.124-.383-.457-.531-.834-.473-.466.074-.96.108-1.382.146-1.177.08-2.358.082-3.536.006a22.228 22.228 0 01-1.157-.107c-.086-.01-.18-.025-.258-.036-.243-.036-.484-.08-.724-.13-.111-.027-.111-.185 0-.212h.005c.277-.06.557-.108.838-.147h.002c.131-.009.263-.032.394-.048a25.076 25.076 0 013.426-.12c.674.019 1.347.067 2.017.144l.228.031c.267.04.533.088.798.145.392.085.895.113 1.07.542.055.137.08.288.111.431l.319 1.484a.237.237 0 01-.199.284h-.003c-.037.006-.075.01-.112.015a36.704 36.704 0 01-4.743.295 37.059 37.059 0 01-4.699-.304c-.14-.017-.293-.042-.417-.06-.326-.048-.649-.108-.973-.161-.393-.065-.768-.032-1.123.161-.29.16-.527.404-.675.701-.154.316-.199.66-.267 1-.069.34-.176.707-.135 1.056.087.753.613 1.365 1.37 1.502a39.69 39.69 0 0011.343.376.483.483 0 01.535.53l-.071.697-1.018 9.907c-.041.41-.047.832-.125 1.237-.122.637-.553 1.028-1.182 1.171-.577.131-1.165.2-1.756.205-.656.004-1.31-.025-1.966-.022-.699.004-1.556-.06-2.095-.58-.475-.458-.54-1.174-.605-1.793l-.731-7.013-.322-3.094c-.037-.351-.286-.695-.678-.678-.336.015-.718.3-.678.679l.228 2.185.949 9.112c.147 1.344 1.174 2.068 2.446 2.272.742.12 1.503.144 2.257.156.966.016 1.942.053 2.892-.122 1.408-.258 2.465-1.198 2.616-2.657.34-3.332.663-6.66.992-9.992l.154-1.5.559-5.399a.48.48 0 01.576-.418c.422.056.846.1 1.27.12.16.009.32.007.48.007.082 0 .164 0 .246-.003h.005c.463-.01.808-.33.882-.772.059-.366.05-.755-.027-1.118l-.002-.003z"/>
+                </svg>
+                <span>$3 Coffee?</span>
+            </a>
+            <button class="lang-toggle" onclick="toggleLanguage()" id="langToggle">한국어</button>
+        </div>
     </header>
 
     <div class="container">
@@ -925,7 +963,10 @@
                                         <div class="input-2d-area-wrapper">
                                             <div class="input-2d-y-scale">
                                                 <span>$5k</span>
-                                                <span>$2.5k</span>
+                                                <span>$4k</span>
+                                                <span>$3k</span>
+                                                <span>$2k</span>
+                                                <span>$1k</span>
                                                 <span>$0</span>
                                             </div>
                                             <div class="input-2d-area" id="input2dArea">
@@ -937,19 +978,30 @@
                                         <div class="input-2d-x-label">→ <span data-i18n="everyday_spend_short">Everyday Spend</span></div>
                                         <div class="input-2d-scale">
                                             <span>$0</span>
-                                            <span>$2.5k</span>
-                                            <span>$5k</span>
+                                            <span>$1k</span>
+                                            <span>$2k</span>
+                                            <span>$3k</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="input-2d-right">
                                 <div class="manual-input-group">
-                                    <label data-i18n="monthly_housing">Monthly Housing</label>
+                                    <label class="label-with-help">
+                                        <span data-i18n="monthly_housing">Monthly Housing</span>
+                                        <button class="help-btn">?
+                                            <div class="tooltip" data-i18n-html="tooltip_housing_input"></div>
+                                        </button>
+                                    </label>
                                     <input type="number" id="housingCost" value="2000" min="0" max="10000" step="50" oninput="onManualInput()">
                                 </div>
                                 <div class="manual-input-group">
-                                    <label data-i18n="monthly_everyday">Monthly Everyday Spend</label>
+                                    <label class="label-with-help">
+                                        <span data-i18n="monthly_everyday">Monthly Everyday Spend</span>
+                                        <button class="help-btn">?
+                                            <div class="tooltip" data-i18n-html="tooltip_everyday_input"></div>
+                                        </button>
+                                    </label>
                                     <input type="number" id="everydaySpend" value="1500" min="0" max="10000" step="50" oninput="onManualInput()">
                                 </div>
                             </div>
@@ -1004,71 +1056,49 @@
                     </div>
 
                     <div class="results">
-                        <h3>계산 결과</h3>
+                        <h3 data-i18n="results">Results</h3>
                         <div class="result-grid">
                             <div class="result-item">
                                 <div class="label label-with-help">
-                                    월간 주거비 포인트
+                                    <span data-i18n="monthly_housing_points">Monthly Housing Points</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            <strong>Housing-only:</strong> 주거비 × 배율 (0~1.25X)<br>
-                                            배율은 Everyday Spend Ratio로 결정됨<br><br>
-                                            <strong>Flexible:</strong> Bilt Cash로 잠금 해제<br>
-                                            $3 Cash = 100 포인트 (최대 1X)
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_housing_points"></div>
                                     </button>
                                 </div>
                                 <div class="value" id="monthlyHousingPoints">-</div>
                             </div>
                             <div class="result-item">
                                 <div class="label label-with-help">
-                                    월간 일상 지출 포인트
+                                    <span data-i18n="monthly_everyday_points">Monthly Everyday Points</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            <strong>Blue:</strong> 일상 지출 × 1X<br>
-                                            <strong>Obsidian:</strong> 평균 1.5X (여행 2X, 다이닝/그로서리 3X)<br>
-                                            <strong>Palladium:</strong> 일상 지출 × 2X
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_everyday_points"></div>
                                     </button>
                                 </div>
                                 <div class="value" id="monthlyEverydayPoints">-</div>
                             </div>
                             <div class="result-item">
                                 <div class="label label-with-help">
-                                    월간 Bilt Cash
+                                    <span data-i18n="monthly_bilt_cash">Monthly Bilt Cash</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            <strong>Flexible 옵션만 해당</strong><br>
-                                            일상 지출 × 4% = Bilt Cash<br><br>
-                                            Housing-only 옵션에서는 Bilt Cash 적립 없음
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_monthly_cash"></div>
                                     </button>
                                 </div>
                                 <div class="value" id="monthlyBiltCash">-</div>
                             </div>
                             <div class="result-item">
                                 <div class="label label-with-help">
-                                    남은 Bilt Cash
+                                    <span data-i18n="remaining_bilt_cash">Remaining Bilt Cash</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            주거비 포인트 잠금 해제 후 남은 Bilt Cash<br><br>
-                                            <strong>계산:</strong> 월간 Cash - (잠금 해제 포인트 ÷ 100 × $3)<br><br>
-                                            남은 Cash는 다른 용도로 사용 가능
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_remaining_cash"></div>
                                     </button>
                                 </div>
                                 <div class="value" id="remainingBiltCash">-</div>
                             </div>
                             <div class="result-item full-width">
                                 <div class="label label-with-help">
-                                    연간 총 가치 (예상)
+                                    <span data-i18n="annual_total_value">Annual Total Value (Est.)</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            <strong>계산 공식:</strong><br>
-                                            (연간 포인트 × $0.015) + 연간 남은 Cash + 연간 혜택 - 연회비<br><br>
-                                            <strong>포인트 가치:</strong> 1포인트 = 1.5센트 (보수적)<br>
-                                            <strong>연간 혜택:</strong> Obsidian $100, Palladium $600
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_annual_value"></div>
                                     </button>
                                 </div>
                                 <div class="value" id="annualValue">-</div>
@@ -1077,39 +1107,27 @@
                         <div class="result-breakdown">
                             <div class="breakdown-item">
                                 <span class="label label-with-help">
-                                    Everyday Spend Ratio
+                                    <span data-i18n="everyday_spend_ratio">Everyday Spend Ratio</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            일상 지출 ÷ 주거비 × 100%<br><br>
-                                            Housing-only 옵션에서 주거비 포인트 배율을 결정하는 기준
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_spend_ratio"></div>
                                     </button>
                                 </span>
                                 <span class="value" id="spendRatio">-</span>
                             </div>
                             <div class="breakdown-item">
                                 <span class="label label-with-help">
-                                    Housing-only 배율
+                                    <span data-i18n="housing_only_multiplier">Housing-only Multiplier</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            <strong>Ratio별 배율:</strong><br>
-                                            25% 미만: 0X (최소 250pt)<br>
-                                            25~50%: 0.5X<br>
-                                            50~75%: 0.75X<br>
-                                            75~100%: 1X<br>
-                                            100%+: 1.25X
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_multiplier"></div>
                                     </button>
                                 </span>
                                 <span class="value" id="housingMultiplier">-</span>
                             </div>
                             <div class="breakdown-item">
                                 <span class="label label-with-help">
-                                    연간 포인트 총계
+                                    <span data-i18n="annual_points_total">Annual Points Total</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip">
-                                            (월간 주거비 포인트 + 월간 일상 지출 포인트) × 12개월
-                                        </div>
+                                        <div class="tooltip" data-i18n-html="tooltip_annual_points"></div>
                                     </button>
                                 </span>
                                 <span class="value" id="annualPoints">-</span>
@@ -1118,7 +1136,7 @@
                     </div>
 
                     <div class="comparison">
-                        <h3>카드별 연간 가치 비교</h3>
+                        <h3 data-i18n="card_comparison">Card Comparison (Annual)</h3>
                         <div class="comparison-grid" id="comparisonGrid">
                             <!-- Filled by JS -->
                         </div>
@@ -1135,9 +1153,9 @@
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffd700">
                             <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/>
                         </svg>
-                        <span>AI Assistant</span>
+                        <span data-i18n="ai_assistant">AI Assistant</span>
                     </div>
-                    <button class="toggle-btn" onclick="toggleChat()" title="접기/펼치기">
+                    <button class="toggle-btn" onclick="toggleChat()">
                         <svg viewBox="0 0 24 24">
                             <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
                         </svg>
@@ -1145,22 +1163,22 @@
                 </div>
                 <div class="chat-content">
                     <div class="api-key-section">
-                        <input type="password" id="apiKey" placeholder="Gemini API Key 입력">
+                        <input type="password" id="apiKey" data-i18n-placeholder="enter_api_key" placeholder="Enter Gemini API Key">
                     </div>
                     <div class="chat-messages" id="chatMessages">
                         <div class="welcome-message">
-                            <h2>Bilt 카드 도우미</h2>
-                            <p>카드 선택, 리워드 옵션 등을 물어보세요.</p>
+                            <h2 data-i18n="card_helper">Bilt Card Helper</h2>
+                            <p data-i18n="ask_questions">Ask about card selection and reward options.</p>
                             <div class="quick-questions">
-                                <button class="quick-question" onclick="askQuestion('어떤 카드가 저에게 가장 좋을까요?')">어떤 카드가 저에게 가장 좋을까요?</button>
-                                <button class="quick-question" onclick="askQuestion('Housing-only와 Flexible 차이점은?')">Housing-only와 Flexible 차이점은?</button>
-                                <button class="quick-question" onclick="askQuestion('현재 값 기준 어떤 옵션이 유리할까요?')">현재 값 기준 어떤 옵션이 유리?</button>
+                                <button class="quick-question" data-question-key="q_best_card" onclick="askQuickQuestion(this)">Which card is best for me?</button>
+                                <button class="quick-question" data-question-key="q_option_diff" onclick="askQuickQuestion(this)">Difference between Housing-only and Flexible?</button>
+                                <button class="quick-question" data-question-key="q_current_value" onclick="askQuickQuestion(this)">Which option is better for my values?</button>
                             </div>
                         </div>
                     </div>
                     <div class="chat-input-container">
-                        <input type="text" id="chatInput" placeholder="질문 입력..." onkeypress="handleKeyPress(event)">
-                        <button onclick="sendMessage()" id="sendBtn">전송</button>
+                        <input type="text" id="chatInput" data-i18n-placeholder="enter_question" placeholder="Enter your question..." onkeypress="handleKeyPress(event)">
+                        <button onclick="sendMessage()" id="sendBtn" data-i18n="send">Send</button>
                     </div>
                 </div>
             </div>
@@ -1214,11 +1232,113 @@
 
         // Global state
         let conversationHistory = [];
+        let translations = {};
+        let currentLang = 'en';
+
+        // Load translations from CSV
+        async function loadTranslations() {
+            try {
+                const response = await fetch('translations.csv');
+                const text = await response.text();
+                parseCSV(text);
+                applyTranslations();
+            } catch (error) {
+                console.error('Failed to load translations:', error);
+            }
+        }
+
+        function parseCSV(text) {
+            const lines = text.split('\n');
+            const headers = parseCSVLine(lines[0]);
+
+            for (let i = 1; i < lines.length; i++) {
+                if (!lines[i].trim()) continue;
+                const values = parseCSVLine(lines[i]);
+                const key = values[0];
+                translations[key] = {};
+                for (let j = 1; j < headers.length; j++) {
+                    translations[key][headers[j]] = values[j] || '';
+                }
+            }
+        }
+
+        function parseCSVLine(line) {
+            const result = [];
+            let current = '';
+            let inQuotes = false;
+
+            for (let i = 0; i < line.length; i++) {
+                const char = line[i];
+                if (char === '"') {
+                    inQuotes = !inQuotes;
+                } else if (char === ',' && !inQuotes) {
+                    result.push(current.trim());
+                    current = '';
+                } else {
+                    current += char;
+                }
+            }
+            result.push(current.trim());
+            return result;
+        }
+
+        function applyTranslations() {
+            // Text content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[key] && translations[key][currentLang]) {
+                    el.textContent = translations[key][currentLang];
+                }
+            });
+
+            // HTML content (tooltips)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (translations[key] && translations[key][currentLang]) {
+                    el.innerHTML = translations[key][currentLang];
+                }
+            });
+
+            // Placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[key] && translations[key][currentLang]) {
+                    el.placeholder = translations[key][currentLang];
+                }
+            });
+
+            // Quick question buttons
+            document.querySelectorAll('[data-question-key]').forEach(el => {
+                const key = el.getAttribute('data-question-key');
+                if (translations[key] && translations[key][currentLang]) {
+                    el.textContent = translations[key][currentLang];
+                }
+            });
+
+            // Update language toggle button
+            document.getElementById('langToggle').textContent = currentLang === 'en' ? '한국어' : 'English';
+
+            // Update page title
+            document.title = 'BILT 2.0 ' + (translations['site_title'] ? translations['site_title'][currentLang] : 'Card Strategy');
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ko' : 'en';
+            localStorage.setItem('bilt_lang', currentLang);
+            applyTranslations();
+        }
+
+        function askQuickQuestion(btn) {
+            const key = btn.getAttribute('data-question-key');
+            const question = translations[key] ? translations[key][currentLang] : btn.textContent;
+            document.getElementById('chatInput').value = question;
+            sendMessage();
+        }
 
         // 2D Input Configuration
         const INPUT_2D_CONFIG = {
             maxHousing: 5000,
-            maxSpend: 5000,
+            maxSpend: 3000,
             minValue: 0
         };
 
@@ -1471,7 +1591,8 @@
             const message = input.value.trim();
 
             if (!apiKey) {
-                addMessage('API Key를 입력해주세요.', 'system');
+                const msg = translations['api_key_required'] ? translations['api_key_required'][currentLang] : 'Please enter API Key.';
+                addMessage(msg, 'system');
                 return;
             }
 
@@ -1636,8 +1757,19 @@
         }
 
         // Initialize
-        setup2DInput();
-        calculate();
+        async function init() {
+            // Load saved language preference
+            const savedLang = localStorage.getItem('bilt_lang');
+            if (savedLang) {
+                currentLang = savedLang;
+            }
+
+            await loadTranslations();
+            setup2DInput();
+            calculate();
+        }
+
+        init();
     </script>
 </body>
 </html>
