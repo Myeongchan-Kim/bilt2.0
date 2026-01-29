@@ -100,6 +100,22 @@ function setupEventListeners() {
             }
         });
     }
+
+    // Easter egg
+    const easterEggTrigger = document.getElementById('easterEggTrigger');
+    const easterEggImg = document.getElementById('easterEggImg');
+    if (easterEggTrigger && easterEggImg) {
+        const easterEggImages = [
+            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPqFyYQ4zrJoY9vbDx5pHlMB9_f4CHXPquJg&s',
+            'https://img.youtube.com/vi/hWlxfdabMz4/0.jpg',
+            'https://img.youtube.com/vi/B7whSyo3XCk/0.jpg',
+            'https://img.youtube.com/vi/zzncuyE5ME8/0.jpg'
+        ];
+        easterEggTrigger.addEventListener('mouseenter', () => {
+            const randomImg = easterEggImages[Math.floor(Math.random() * easterEggImages.length)];
+            easterEggImg.src = randomImg;
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);

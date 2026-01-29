@@ -3,6 +3,7 @@
     { "source": "/css/(.*)", "destination": "/public/css/$1" },
     { "source": "/js/(.*)", "destination": "/public/js/$1" },
     { "source": "/data/(.*)", "destination": "/public/data/$1" },
+    { "source": "/terms.html", "destination": "/public/terms.html" },
     { "source": "/", "destination": "/public/index.html" }
   ]
 }

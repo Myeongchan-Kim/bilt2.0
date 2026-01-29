@@ -32,6 +32,33 @@ header h1 span {
     color: #ffd700;
 }
 
+/* Easter Egg */
+.easter-egg-trigger {
+    position: relative;
+    cursor: pointer;
+}
+
+.easter-egg-img {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-20px);
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.easter-egg-trigger:hover .easter-egg-img {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10px);
+}
+
 header > .lang-toggle {
     position: absolute;
     left: 20px;
@@ -1443,4 +1470,44 @@ header > .bmc-btn {
 
 .breakdown-item .tooltip {
     width: 220px;
+}
+
+/* Footer */
+.site-footer {
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-content a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+}
+
+.footer-content a:hover {
+    color: #ffd700;
+}
+
+.footer-content svg {
+    vertical-align: middle;
+}
+
+.footer-divider {
+    color: rgba(255, 255, 255, 0.3);
 }
