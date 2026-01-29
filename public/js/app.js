@@ -14,6 +14,19 @@ function updateObsidianSliderState() {
     }
 }
 
+function updateBiltCashValueVisibility() {
+    const section = document.getElementById('biltCashValueSection');
+    const selectedOption = document.querySelector('input[name="option"]:checked');
+
+    if (section && selectedOption) {
+        if (selectedOption.value === 'flexible') {
+            section.classList.add('visible');
+        } else {
+            section.classList.remove('visible');
+        }
+    }
+}
+
 async function init() {
     if (window.i18n) {
         await window.i18n.init();
@@ -77,9 +90,25 @@ function setupEventListeners() {
 
     document.querySelectorAll('input[name="option"]').forEach(radio => {
         radio.addEventListener('change', () => {
+            updateBiltCashValueVisibility();
             if (window.calculator) window.calculator.calculate();
         });
     });
+
+    // Bilt Cash Value slider
+    const biltCashValueSlider = document.getElementById('biltCashValue');
+    const biltCashValueDisplay = document.getElementById('biltCashValueDisplay');
+    if (biltCashValueSlider) {
+        biltCashValueSlider.addEventListener('input', () => {
+            if (biltCashValueDisplay) {
+                biltCashValueDisplay.textContent = '$' + parseFloat(biltCashValueSlider.value).toFixed(2);
+            }
+            if (window.calculator) window.calculator.calculate();
+        });
+    }
+
+    // Initialize Bilt Cash Value visibility
+    updateBiltCashValueVisibility();
 
     document.querySelectorAll('input[name="hotelValue"]').forEach(radio => {
         radio.addEventListener('change', () => {

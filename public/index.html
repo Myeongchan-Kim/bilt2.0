@@ -141,6 +141,18 @@
                                             <label for="optionFlexible">Flexible</label>
                                         </div>
                                     </div>
+                                    <div class="bilt-cash-value-section" id="biltCashValueSection" data-testid="bilt-cash-value">
+                                        <div class="bilt-cash-value-header">
+                                            <span class="bilt-cash-value-label label-with-help">
+                                                <span data-i18n="bilt_cash_value">Bilt Cash Value</span>
+                                                <button class="help-btn small" type="button">?
+                                                    <div class="tooltip" data-i18n-html="tooltip_bilt_cash_value"></div>
+                                                </button>
+                                            </span>
+                                            <span class="bilt-cash-value-display" id="biltCashValueDisplay">$0.50</span>
+                                        </div>
+                                        <input type="range" id="biltCashValue" min="0" max="1" step="0.05" value="0.5">
+                                    </div>
                                 </div>
                                 <div class="input-2d-hotel" data-testid="hotel-value">
                                     <h4 class="label-with-help">
@@ -217,7 +229,7 @@
                                 </div>
                                 <div class="step-content">
                                     <div class="calc-row">
-                                        <span class="calc-label">Cash Earned</span>
+                                        <span class="calc-label">Bilt Cash Earned</span>
                                         <span class="calc-formula" id="cashEarnedFormula">$500 × 4%</span>
                                         <span class="calc-result" id="monthlyBiltCash">$20.00</span>
                                     </div>
@@ -227,12 +239,12 @@
                                         <span class="calc-result" id="unlockablePoints">667 pts</span>
                                     </div>
                                     <div class="calc-row">
-                                        <span class="calc-label">Cash Used</span>
+                                        <span class="calc-label">Bilt Cash Used</span>
                                         <span class="calc-formula" id="cashUsedFormula">667 ÷ 100 × $3</span>
                                         <span class="calc-result negative" id="usedBiltCash">-$20.00</span>
                                     </div>
                                     <div class="calc-row subtotal">
-                                        <span class="calc-label">Remaining Cash</span>
+                                        <span class="calc-label">Remaining Bilt Cash</span>
                                         <span class="calc-formula" id="remainingFormula">$20 - $20</span>
                                         <span class="calc-result" id="remainingBiltCash">$0.00</span>
                                     </div>
@@ -257,7 +269,7 @@
                                         <span class="calc-result" id="annualPointsValue">$300</span>
                                     </div>
                                     <div class="calc-row" id="annualCashRow">
-                                        <span class="calc-label">Annual Remaining Cash</span>
+                                        <span class="calc-label">Annual Remaining Bilt Cash</span>
                                         <span class="calc-formula" id="annualCashFormula">$0 × 12</span>
                                         <span class="calc-result" id="annualRemainingCash">$0</span>
                                     </div>
@@ -277,7 +289,7 @@
                                         <span class="calc-result" id="finalPointsValue">$300</span>
                                     </div>
                                     <div class="calc-row" id="finalCashRow">
-                                        <span class="calc-label">+ Remaining Cash</span>
+                                        <span class="calc-label">+ Remaining Bilt Cash</span>
                                         <span class="calc-formula"></span>
                                         <span class="calc-result positive" id="finalCashValue">+$0</span>
                                     </div>

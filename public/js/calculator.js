@@ -110,7 +110,12 @@ function calculate() {
     // Annual calculations
     const annualPoints = (monthlyHousingPoints + monthlyEverydayPoints) * 12;
     const annualPointsValue = Math.round(annualPoints * 0.015);
-    const annualRemainingCash = remainingBiltCash * 12;
+
+    // Apply Bilt Cash value multiplier (default 0.5 = $0.50 per $1 Bilt Cash)
+    const biltCashSlider = document.getElementById('biltCashValue');
+    const biltCashMultiplier = biltCashSlider ? parseFloat(biltCashSlider.value) : 0.5;
+    const annualRemainingCash = remainingBiltCash * 12 * biltCashMultiplier;
+
     const annualValue = annualPointsValue + annualRemainingCash + annualBenefits - annualFee;
 
     // ===== UPDATE UI =====
@@ -159,9 +164,9 @@ function calculate() {
     document.getElementById('annualPointsValue').textContent = `$${annualPointsValue}`;
 
     const annualCashRow = document.getElementById('annualCashRow');
-    if (option === 'flexible' && remainingBiltCash > 0) {
+    if (option === 'flexible') {
         annualCashRow.style.display = 'grid';
-        document.getElementById('annualCashFormula').textContent = `$${remainingBiltCash.toFixed(0)} × 12`;
+        document.getElementById('annualCashFormula').textContent = `$${remainingBiltCash.toFixed(0)} × 12 × ${biltCashMultiplier.toFixed(2)}`;
         document.getElementById('annualRemainingCash').textContent = `$${Math.round(annualRemainingCash)}`;
     } else {
         annualCashRow.style.display = 'none';
@@ -171,7 +176,7 @@ function calculate() {
     document.getElementById('finalPointsValue').textContent = `$${annualPointsValue}`;
 
     const finalCashRow = document.getElementById('finalCashRow');
-    if (annualRemainingCash > 0) {
+    if (option === 'flexible') {
         finalCashRow.style.display = 'grid';
         document.getElementById('finalCashValue').textContent = `+$${Math.round(annualRemainingCash)}`;
     } else {
@@ -186,7 +191,7 @@ function calculate() {
 
     // Build total formula
     let totalFormula = `$${annualPointsValue}`;
-    if (annualRemainingCash > 0) totalFormula += ` + $${Math.round(annualRemainingCash)}`;
+    if (option === 'flexible') totalFormula += ` + $${Math.round(annualRemainingCash)}`;
     if (annualBenefits > 0) totalFormula += ` + $${annualBenefits}`;
     if (annualFee > 0) totalFormula += ` − $${annualFee}`;
     document.getElementById('totalFormula').textContent = totalFormula;
@@ -303,7 +308,10 @@ function updateComparison(housingCost, everydaySpend, option, housingMultiplier,
         const actualHotelCredit = Math.min(userHotelValue, maxHotelCredit);
         const annualBenefits = actualHotelCredit + annualCashBonus;
 
-        const annualBiltCash = remainingBiltCash * 12;
+        // Apply Bilt Cash value multiplier
+        const biltCashSlider = document.getElementById('biltCashValue');
+        const biltCashMultiplier = biltCashSlider ? parseFloat(biltCashSlider.value) : 0.5;
+        const annualBiltCash = remainingBiltCash * 12 * biltCashMultiplier;
         const pointsValue = Math.round(annualPoints * 0.015);
         const annualValue = pointsValue + annualBiltCash + annualBenefits - annualFee;
 

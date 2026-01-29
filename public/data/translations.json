@@ -298,5 +298,15 @@
     "en": "<strong>Adjust Obsidian multiplier</strong><br>Based on your spending habits:<br><br>• More Dining/Grocery → closer to 3.0X<br>• More Travel → closer to 2.0X<br>• More Other purchases → closer to 1.0X",
     "ko": "<strong>Obsidian 배율 조정</strong><br>소비 패턴에 따라 조절하세요:<br><br>• 식사/식료품 많음 → 3.0X에 가깝게<br>• 여행 많음 → 2.0X에 가깝게<br>• 기타 지출 많음 → 1.0X에 가깝게",
     "es": "<strong>Ajustar multiplicador Obsidian</strong><br>Segun tus habitos de gasto:<br><br>• Mas Comida/Supermercado → cerca de 3.0X<br>• Mas Viajes → cerca de 2.0X<br>• Mas Otras compras → cerca de 1.0X"
+  },
+  "bilt_cash_value": {
+    "en": "Bilt Cash Value",
+    "ko": "Bilt Cash 가치",
+    "es": "Valor de Bilt Cash"
+  },
+  "tooltip_bilt_cash_value": {
+    "en": "<strong>How much is $1 Bilt Cash worth to you?</strong><br><br><strong>$0.50 (default):</strong> Based on $3 = 100 points = $1.50<br><strong>$1.00:</strong> If you use it as statement credit<br><strong>$0.00:</strong> If you never use it",
+    "ko": "<strong>$1 Bilt Cash가 얼마의 가치가 있나요?</strong><br><br><strong>$0.50 (기본):</strong> $3 = 100 포인트 = $1.50 기준<br><strong>$1.00:</strong> 명세서 크레딧으로 사용 시<br><strong>$0.00:</strong> 사용하지 않을 경우",
+    "es": "<strong>¿Cuánto vale $1 Bilt Cash para ti?</strong><br><br><strong>$0.50 (predeterminado):</strong> Basado en $3 = 100 puntos = $1.50<br><strong>$1.00:</strong> Si lo usas como crédito<br><strong>$0.00:</strong> Si nunca lo usas"
   }
 }
