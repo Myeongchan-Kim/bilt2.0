@@ -1,0 +1,182 @@
+{
+  "site_title": {
+    "en": "BILT 2.0 Card Strategy",
+    "ko": "BILT 2.0 Card Strategy"
+  },
+  "calculator": {
+    "en": "Calculator",
+    "ko": "Calculator"
+  },
+  "spend_settings": {
+    "en": "Spend Settings",
+    "ko": "Spend Settings"
+  },
+  "monthly_housing": {
+    "en": "Monthly Housing",
+    "ko": "Monthly Housing"
+  },
+  "monthly_everyday": {
+    "en": "Monthly Everyday Spend",
+    "ko": "Monthly Everyday Spend"
+  },
+  "everyday_spend_short": {
+    "en": "Everyday Spend",
+    "ko": "Everyday Spend"
+  },
+  "housing_short": {
+    "en": "Housing",
+    "ko": "Housing"
+  },
+  "card_selection": {
+    "en": "Card Selection",
+    "ko": "Card Selection"
+  },
+  "annual_fee": {
+    "en": "Annual Fee",
+    "ko": "Annual Fee"
+  },
+  "reward_option": {
+    "en": "Reward Option",
+    "ko": "Reward Option"
+  },
+  "housing_only": {
+    "en": "Housing-only",
+    "ko": "Housing-only"
+  },
+  "housing_only_desc": {
+    "en": "Auto 0X~1.25X",
+    "ko": "Auto 0X~1.25X"
+  },
+  "flexible_cash": {
+    "en": "Flexible Cash",
+    "ko": "Flexible Cash"
+  },
+  "flexible_cash_desc": {
+    "en": "4% Cash + Max 1X",
+    "ko": "4% Cash + Max 1X"
+  },
+  "results": {
+    "en": "Results",
+    "ko": "Results"
+  },
+  "monthly_housing_points": {
+    "en": "Monthly Housing Points",
+    "ko": "Monthly Housing Points"
+  },
+  "monthly_everyday_points": {
+    "en": "Monthly Everyday Points",
+    "ko": "Monthly Everyday Points"
+  },
+  "monthly_bilt_cash": {
+    "en": "Monthly Bilt Cash",
+    "ko": "Monthly Bilt Cash"
+  },
+  "remaining_bilt_cash": {
+    "en": "Remaining Bilt Cash",
+    "ko": "Remaining Bilt Cash"
+  },
+  "annual_total_value": {
+    "en": "Annual Total Value (Est.)",
+    "ko": "Annual Total Value (Est.)"
+  },
+  "everyday_spend_ratio": {
+    "en": "Everyday Spend Ratio",
+    "ko": "Everyday Spend Ratio"
+  },
+  "housing_only_multiplier": {
+    "en": "Housing-only Multiplier",
+    "ko": "Housing-only Multiplier"
+  },
+  "annual_points_total": {
+    "en": "Annual Points Total",
+    "ko": "Annual Points Total"
+  },
+  "card_comparison": {
+    "en": "Card Comparison (Annual)",
+    "ko": "Card Comparison (Annual)"
+  },
+  "ai_assistant": {
+    "en": "AI Assistant",
+    "ko": "AI Assistant"
+  },
+  "enter_api_key": {
+    "en": "Enter Gemini API Key",
+    "ko": "Gemini API Key"
+  },
+  "card_helper": {
+    "en": "Bilt Card Helper",
+    "ko": "Bilt Card Helper"
+  },
+  "ask_questions": {
+    "en": "Ask about card selection and reward options.",
+    "ko": "Ask about card selection and reward options."
+  },
+  "q_best_card": {
+    "en": "Which card is best for me?",
+    "ko": "Which card is best for me?"
+  },
+  "q_option_diff": {
+    "en": "Difference between Housing-only and Flexible?",
+    "ko": "Difference between Housing-only and Flexible?"
+  },
+  "q_current_value": {
+    "en": "Which option is better for my values?",
+    "ko": "Which option is better for my values?"
+  },
+  "enter_question": {
+    "en": "Enter your question...",
+    "ko": "Enter your question..."
+  },
+  "send": {
+    "en": "Send",
+    "ko": "Send"
+  },
+  "tooltip_housing_points": {
+    "en": "<strong>Housing-only:</strong> Housing x Multiplier (0~1.25X)<br>Multiplier determined by Everyday Spend Ratio<br><br><strong>Flexible:</strong> Unlock with Bilt Cash<br>$3 Cash = 100 points (max 1X)",
+    "ko": "<strong>Housing-only:</strong> Housing x Multiplier (0~1.25X)<br>Multiplier = Everyday Spend Ratio<br><br><strong>Flexible:</strong> Bilt Cash<br>$3 Cash = 100 points (max 1X)"
+  },
+  "tooltip_everyday_points": {
+    "en": "<strong>Blue:</strong> Everyday Spend x 1X<br><strong>Obsidian:</strong> Avg 1.5X (Travel 2X, Dining/Grocery 3X)<br><strong>Palladium:</strong> Everyday Spend x 2X",
+    "ko": "<strong>Blue:</strong> Everyday Spend x 1X<br><strong>Obsidian:</strong> Avg 1.5X (Travel 2X, Dining/Grocery 3X)<br><strong>Palladium:</strong> Everyday Spend x 2X"
+  },
+  "tooltip_monthly_cash": {
+    "en": "<strong>Flexible option only</strong><br>Everyday Spend x 4% = Bilt Cash<br><br>No Bilt Cash earned with Housing-only option",
+    "ko": "<strong>Flexible option only</strong><br>Everyday Spend x 4% = Bilt Cash<br><br>No Bilt Cash with Housing-only option"
+  },
+  "tooltip_remaining_cash": {
+    "en": "Remaining Bilt Cash after unlocking housing points<br><br><strong>Calculation:</strong> Monthly Cash - (Unlocked Points / 100 x $3)<br><br>Remaining Cash can be used for other purposes",
+    "ko": "Remaining Bilt Cash after unlocking housing points<br><br><strong>Calculation:</strong> Monthly Cash - (Unlocked Points / 100 x $3)<br><br>Remaining Cash can be used for other purposes"
+  },
+  "tooltip_annual_value": {
+    "en": "<strong>Formula:</strong><br>(Annual Points x $0.015) + Annual Remaining Cash + Annual Benefits - Annual Fee<br><br><strong>Point Value:</strong> 1 point = 1.5 cents (conservative)<br><strong>Annual Benefits:</strong> Obsidian $100, Palladium $600",
+    "ko": "<strong>Formula:</strong><br>(Annual Points x $0.015) + Annual Remaining Cash + Annual Benefits - Annual Fee<br><br><strong>Point Value:</strong> 1 point = 1.5 cents (conservative)<br><strong>Annual Benefits:</strong> Obsidian $100, Palladium $600"
+  },
+  "tooltip_spend_ratio": {
+    "en": "Everyday Spend / Housing x 100%<br><br>Determines housing points multiplier in Housing-only option",
+    "ko": "Everyday Spend / Housing x 100%<br><br>Determines housing points multiplier in Housing-only option"
+  },
+  "tooltip_multiplier": {
+    "en": "<strong>Multiplier by Ratio:</strong><br>Under 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X",
+    "ko": "<strong>Multiplier by Ratio:</strong><br>Under 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X"
+  },
+  "tooltip_annual_points": {
+    "en": "(Monthly Housing Points + Monthly Everyday Points) x 12 months",
+    "ko": "(Monthly Housing Points + Monthly Everyday Points) x 12 months"
+  },
+  "tooltip_housing_input": {
+    "en": "<strong>Bilt Housing Payments</strong><br>Rent or mortgage paid through Bilt App<br><br><strong>Also includes:</strong><br>- HOA dues<br>- Utilities<br>- Property taxes<br>- Amenity fees<br>- Gym fees",
+    "ko": "<strong>Bilt Housing Payments</strong><br>Rent or mortgage paid through Bilt App<br><br><strong>Also includes:</strong><br>- HOA dues<br>- Utilities<br>- Property taxes<br>- Amenity fees<br>- Gym fees"
+  },
+  "tooltip_everyday_input": {
+    "en": "<strong>Amount you plan to spend with Bilt Card</strong><br>All purchases except housing payments<br><br><strong>Excludes:</strong><br>- Gift cards, prepaid cards<br>- P2P (Venmo, PayPal, Zelle)<br>- Crypto purchases<br>- Cash advances",
+    "ko": "<strong>Amount you plan to spend with Bilt Card</strong><br>All purchases except housing payments<br><br><strong>Excludes:</strong><br>- Gift cards, prepaid cards<br>- P2P (Venmo, PayPal, Zelle)<br>- Crypto purchases<br>- Cash advances"
+  },
+  "pts_yr": {
+    "en": "pts/yr",
+    "ko": "pts/yr"
+  },
+  "api_key_required": {
+    "en": "Please enter API Key.",
+    "ko": "Please enter API Key."
+  }
+}
