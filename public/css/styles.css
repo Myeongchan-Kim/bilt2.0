@@ -286,12 +286,12 @@ header > .bmc-btn {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 70%;
+    height: 40%;
     background: linear-gradient(
         to bottom,
         transparent 0%,
-        rgba(22, 33, 62, 0.7) 50%,
-        rgba(22, 33, 62, 0.95) 100%
+        rgba(22, 33, 62, 0.8) 60%,
+        rgba(22, 33, 62, 0.98) 100%
     );
     border-radius: 0 0 12px 12px;
     pointer-events: none;
@@ -304,7 +304,7 @@ header > .bmc-btn {
     bottom: 0;
     left: -1px;
     width: 1px;
-    height: 60%;
+    height: 35%;
     background: linear-gradient(
         to bottom,
         rgba(255, 215, 0, 0.2) 0%,
@@ -320,7 +320,7 @@ header > .bmc-btn {
     bottom: 0;
     right: -1px;
     width: 1px;
-    height: 60%;
+    height: 35%;
     background: linear-gradient(
         to bottom,
         rgba(255, 215, 0, 0.2) 0%,
