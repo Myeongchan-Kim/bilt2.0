@@ -27,14 +27,27 @@ MAX_MESSAGE_LENGTH = 5000
 class RateLimiter:
     """In-memory rate limiter for basic DoS protection."""
 
-    def __init__(self, max_requests=10, window_seconds=60):
+    def __init__(self, max_requests=10, window_seconds=60, max_entries=1000):
         self.max_requests = max_requests
         self.window = window_seconds
+        self.max_entries = max_entries
         self.requests = defaultdict(list)
+
+    def _cleanup_stale_entries(self, now):
+        """Remove IPs with no recent requests to prevent memory leak."""
+        stale_ips = [
+            ip for ip, timestamps in self.requests.items()
+            if not timestamps or now - max(timestamps) >= self.window
+        ]
+        for ip in stale_ips:
+            del self.requests[ip]
 
     def is_allowed(self, client_ip):
         now = time()
-        # Clean up old requests
+        # Periodic cleanup of stale IPs to prevent memory leak
+        if len(self.requests) > self.max_entries:
+            self._cleanup_stale_entries(now)
+        # Clean up old requests for this IP
         self.requests[client_ip] = [
             t for t in self.requests[client_ip] if now - t < self.window
         ]
@@ -227,5 +240,6 @@ class handler(BaseHTTPRequestHandler):
         # Only set allowed origin if it passes validation
         if origin and self._validate_origin():
             self.send_header('Access-Control-Allow-Origin', origin)
+        self.send_header('Vary', 'Origin')
         self.send_header('Access-Control-Allow-Methods', 'POST, OPTIONS')
         self.send_header('Access-Control-Allow-Headers', 'Content-Type')
