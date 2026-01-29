@@ -15,9 +15,11 @@ header {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px);
     padding: 20px;
-    text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header h1 {
@@ -30,14 +32,18 @@ header h1 span {
     color: #ffd700;
 }
 
-.header-buttons {
+header > .lang-toggle {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+header > .bmc-btn {
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    display: flex;
-    gap: 10px;
-    align-items: center;
 }
 
 .lang-toggle {
@@ -233,6 +239,134 @@ header h1 span {
     border-radius: 12px;
     padding: 20px;
     border: 1px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.results.collapsed {
+    border-bottom-color: transparent;
+}
+
+/* Fade overlay for collapsed state - covers bottom portion */
+.results.collapsed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(22, 33, 62, 0.7) 50%,
+        rgba(22, 33, 62, 0.95) 100%
+    );
+    border-radius: 0 0 12px 12px;
+    pointer-events: none;
+}
+
+/* Fade side borders - left */
+.results.collapsed::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -1px;
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 215, 0, 0.2) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+/* Additional element for right border fade using box-shadow trick */
+.results.collapsed .results-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: -1px;
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 215, 0, 0.2) 0%,
+        transparent 100%
+    );
+    pointer-events: none;
+}
+
+.results-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.results.collapsed .results-header {
+    margin-bottom: 12px;
+}
+
+.results-header h3 {
+    font-size: 1rem;
+    color: #ffd700;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.results-header h3 .detail-label {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(255, 215, 0, 0.6);
+}
+
+.fold-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    background: rgba(255, 215, 0, 0.2);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 12px;
+    color: #ffd700;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.fold-btn:hover {
+    background: rgba(255, 215, 0, 0.3);
+}
+
+.fold-btn svg {
+    transition: transform 0.3s;
+}
+
+.results.collapsed .fold-btn svg {
+    transform: rotate(0deg);
+}
+
+.results:not(.collapsed) .fold-btn svg {
+    transform: rotate(180deg);
+}
+
+.results-content {
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 1;
+}
+
+.results.collapsed .results-content {
+    max-height: 120px;
+    position: relative;
+}
+
+.results:not(.collapsed) .results-content {
+    max-height: 2000px;
 }
 
 .results h3 {
@@ -269,25 +403,202 @@ header h1 span {
     grid-column: span 2;
 }
 
+.result-item.full-width.highlight {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.result-item .value.negative {
+    color: #ff6b6b;
+}
+
+.result-item .value.positive {
+    color: #51cf66;
+}
+
+/* Step-by-step calculation */
+.calc-step {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.calc-step.final {
+    background: rgba(255, 215, 0, 0.05);
+    border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.step-number {
+    width: 22px;
+    height: 22px;
+    background: rgba(255, 215, 0, 0.2);
+    color: #ffd700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.step-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.step-content {
+    padding: 10px 14px;
+}
+
+.calc-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr auto;
+    gap: 8px;
+    padding: 6px 0;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.calc-row.subtotal {
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    margin-top: 4px;
+    padding-top: 10px;
+}
+
+.calc-row.total {
+    border-top: 1px solid rgba(255, 215, 0, 0.3);
+    margin-top: 8px;
+    padding-top: 12px;
+}
+
+.calc-label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.calc-formula {
+    color: rgba(255, 255, 255, 0.4);
+    font-family: monospace;
+    font-size: 0.7rem;
+    text-align: right;
+}
+
+.calc-result {
+    font-weight: 600;
+    color: #fff;
+    text-align: right;
+    min-width: 70px;
+}
+
+.calc-result.negative {
+    color: #ff6b6b;
+}
+
+.calc-result.positive {
+    color: #51cf66;
+}
+
+.calc-result.highlight {
+    color: #ffd700;
+    font-size: 1.1rem;
+}
+
+.calc-row.total .calc-label {
+    font-weight: 600;
+    color: #ffd700;
+}
+
+/* Year summary */
+.calc-step.year-summary {
+    background: rgba(81, 207, 102, 0.05);
+    border: 1px solid rgba(81, 207, 102, 0.2);
+}
+
+.calc-step.year-summary .step-number {
+    background: rgba(81, 207, 102, 0.2);
+    color: #51cf66;
+}
+
+.year-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.year-box {
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.year-box.year1 {
+    background: linear-gradient(135deg, rgba(81, 207, 102, 0.15), rgba(81, 207, 102, 0.05));
+    border: 1px solid rgba(81, 207, 102, 0.3);
+}
+
+.year-box.year2 {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.year-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.year-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.year-box.year1 .year-value {
+    color: #51cf66;
+}
+
+.year-detail {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
 .result-breakdown {
     margin-top: 16px;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    display: flex;
+    gap: 24px;
 }
 
 .breakdown-item {
     display: flex;
-    justify-content: space-between;
-    padding: 8px 0;
-    font-size: 0.9rem;
+    gap: 8px;
+    align-items: center;
+    font-size: 0.75rem;
 }
 
-.breakdown-item .label {
-    color: rgba(255, 255, 255, 0.7);
+.breakdown-item .calc-label {
+    color: rgba(255, 255, 255, 0.5);
 }
 
-.breakdown-item .value {
-    font-weight: 500;
+.breakdown-item .calc-result {
+    font-size: 0.8rem;
+    min-width: auto;
 }
 
 /* Card comparison */
@@ -366,10 +677,42 @@ header h1 span {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.comparison-card .card-fee-info {
-    font-size: 0.7rem;
-    color: rgba(255, 100, 100, 0.6);
-    margin-top: 2px;
+.comparison-card .card-breakdown {
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 4px;
+    font-family: monospace;
+}
+
+.comparison-card .card-value-label {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 400;
+}
+
+.comparison-card .card-first-year {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.comparison-card .card-first-year .first-year-label {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.comparison-card .card-first-year .bonus-detail {
+    font-size: 0.65rem;
+    color: rgba(76, 175, 80, 0.7);
+}
+
+.comparison-card .card-first-year.best-first {
+    color: #ffd700;
+}
+
+.comparison-card .card-first-year.best-first .bonus-detail {
+    color: rgba(255, 215, 0, 0.7);
 }
 
 .best-badge {
@@ -595,6 +938,12 @@ header h1 span {
     transform: none;
 }
 
+.chat-input-container button.loading {
+    background: linear-gradient(135deg, #666 0%, #555 100%);
+    color: #999;
+    cursor: not-allowed;
+}
+
 /* Typing indicator */
 .typing-indicator {
     display: flex;
@@ -720,7 +1069,7 @@ header h1 span {
 .input-2d-area {
     position: relative;
     width: 100%;
-    height: 150px;
+    height: 120px;
     background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 215, 0, 0.15) 100%);
     border: 2px solid rgba(255, 215, 0, 0.3);
     border-radius: 8px;
@@ -836,18 +1185,33 @@ header h1 span {
     flex-shrink: 0;
 }
 
-.input-2d-cards {
+.input-2d-options {
+    display: flex;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.input-2d-cards,
+.input-2d-reward,
+.input-2d-hotel {
     display: flex;
     flex-direction: column;
     gap: 8px;
     flex-shrink: 0;
 }
 
-.input-2d-cards h4 {
+.input-2d-cards h4,
+.input-2d-reward h4,
+.input-2d-hotel h4 {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.6);
     font-weight: 500;
     margin: 0;
+}
+
+.hotel-options .radio-option label {
+    padding: 6px 10px;
+    font-size: 0.75rem;
 }
 
 .card-options-vertical {
@@ -1009,6 +1373,25 @@ header h1 span {
 
 .help-btn:hover {
     background: rgba(255, 215, 0, 0.5);
+}
+
+.help-btn.small {
+    width: 14px;
+    height: 14px;
+    font-size: 9px;
+}
+
+/* Compact radio options */
+.card-options-vertical.compact .radio-option label {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+}
+
+.input-2d-reward h4.label-with-help,
+.input-2d-hotel h4.label-with-help {
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .tooltip {

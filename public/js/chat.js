@@ -1,8 +1,49 @@
 // Chat module
 
 let conversationHistory = [];
+let chatReady = false;
+let chatRemainingSeconds = 3;
+let messageCount = 0;
+const MAX_MESSAGES = 10;
+
+// Initialize chat readiness after 4 seconds
+function initChatDelay() {
+    const sendBtn = document.getElementById('sendBtn');
+    if (!sendBtn) return;
+
+    chatRemainingSeconds = 3;
+    sendBtn.classList.add('loading');
+    sendBtn.textContent = chatRemainingSeconds + 's';
+
+    const countdown = setInterval(() => {
+        chatRemainingSeconds--;
+        if (chatRemainingSeconds > 0) {
+            sendBtn.textContent = chatRemainingSeconds + 's';
+        } else {
+            clearInterval(countdown);
+            chatReady = true;
+            sendBtn.classList.remove('loading');
+            sendBtn.textContent = window.i18n ? window.i18n.get('send') : 'Send';
+        }
+    }, 1000);
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', initChatDelay);
 
 async function sendMessage() {
+    if (!chatReady) {
+        const msg = window.i18n ? window.i18n.get('chat_loading') : 'AI is warming up...';
+        alert(msg + ' (' + chatRemainingSeconds + 's)');
+        return;
+    }
+
+    if (messageCount >= MAX_MESSAGES) {
+        const msg = window.i18n ? window.i18n.get('chat_limit_reached') : 'Chat limit reached. Please refresh the page.';
+        alert(msg);
+        return;
+    }
+
     const input = document.getElementById('chatInput');
     const message = input.value.trim();
 
@@ -13,6 +54,7 @@ async function sendMessage() {
 
     addMessage(message, 'user');
     input.value = '';
+    messageCount++;
     document.getElementById('sendBtn').disabled = true;
 
     const typingDiv = document.createElement('div');

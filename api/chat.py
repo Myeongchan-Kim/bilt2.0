@@ -66,9 +66,20 @@ class handler(BaseHTTPRequestHandler):
             genai.configure(api_key=api_key)
             model = genai.GenerativeModel('gemini-2.0-flash')
 
-            context_str = f"[Calculator Values] Housing: ${context.get('housing', 0)}, Everyday Spend: ${context.get('everydaySpend', 0)}, Card: {context.get('card', 'unknown')}, Option: {context.get('option', 'unknown')}"
+            context_str = f"""[Current User Status]
+- Monthly Housing: ${context.get('housing', 0):,.0f}
+- Monthly Everyday Spend: ${context.get('everydaySpend', 0):,.0f}
+- Selected Card: {context.get('card', 'unknown').capitalize()}
+- Selected Option: {context.get('option', 'unknown').replace('_', ' ').title()}
+- Hotel Value Setting: ${context.get('hotelValue', 100)}
+- Spend Ratio: {context.get('spendRatio', 'N/A')}
+- Housing Multiplier: {context.get('housingMultiplier', 'N/A')}
+- Monthly Housing Points: {context.get('monthlyHousingPoints', 'N/A')}
+- Monthly Everyday Points: {context.get('monthlyEverydayPoints', 'N/A')}
+- Annual Points: {context.get('annualPoints', 'N/A')}
+- Annual Value: {context.get('annualValue', 'N/A')}"""
 
-            full_message = f"{context_str}\n\nQuestion: {message}"
+            full_message = f"{context_str}\n\nUser Question: {message}"
 
             chat_history = [
                 {'role': 'user', 'parts': [SYSTEM_PROMPT]},

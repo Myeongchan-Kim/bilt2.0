@@ -63,7 +63,7 @@ function applyTranslations() {
 
     const langToggle = document.getElementById('langToggle');
     if (langToggle) {
-        langToggle.textContent = currentLang === 'en' ? 'English' : 'English';
+        langToggle.textContent = currentLang === 'en' ? '한국어' : 'English';
     }
 
     document.title = 'BILT 2.0 ' + (translations['site_title'] || 'Card Strategy');

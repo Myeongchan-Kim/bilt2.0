@@ -1048,7 +1048,7 @@
                                     <label class="label-with-help">
                                         <span data-i18n="monthly_housing">Monthly Housing</span>
                                         <button class="help-btn">?
-                                            <div class="tooltip" data-i18n-html="tooltip_housing_input"></div>
+                                            <div class="tooltip" data-i18n-html="tooltip_housing_input"><strong>Bilt Housing Payments</strong><br>Rent or mortgage paid through Bilt App<br><br><strong>Also includes:</strong><br>• HOA dues<br>• Utilities<br>• Property taxes<br>• Amenity fees<br>• Gym fees</div>
                                         </button>
                                     </label>
                                     <input type="number" id="housingCost" value="2500" min="0" max="10000" step="50" oninput="onManualInput()">
@@ -1057,7 +1057,7 @@
                                     <label class="label-with-help">
                                         <span data-i18n="monthly_everyday">Monthly Everyday Spend</span>
                                         <button class="help-btn">?
-                                            <div class="tooltip" data-i18n-html="tooltip_everyday_input"></div>
+                                            <div class="tooltip" data-i18n-html="tooltip_everyday_input"><strong>Amount you plan to spend with Bilt Card</strong><br>All purchases except housing payments<br><br><strong>Excludes:</strong><br>• Gift cards, prepaid cards<br>• P2P (Venmo, PayPal, Zelle)<br>• Crypto purchases<br>• Cash advances</div>
                                         </button>
                                     </label>
                                     <input type="number" id="everydaySpend" value="500" min="0" max="10000" step="50" oninput="onManualInput()">
@@ -1110,7 +1110,7 @@
                                 <div class="label label-with-help">
                                     <span data-i18n="monthly_housing_points">Monthly Housing Points</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_housing_points"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_housing_points"><strong>Housing-only:</strong> Housing × Multiplier (0~1.25X)<br>Multiplier determined by Everyday Spend Ratio<br><br><strong>Flexible:</strong> Unlock with Bilt Cash<br>$3 Cash = 100 points (max 1X)</div>
                                     </button>
                                 </div>
                                 <div class="value" id="monthlyHousingPoints">-</div>
@@ -1119,7 +1119,7 @@
                                 <div class="label label-with-help">
                                     <span data-i18n="monthly_everyday_points">Monthly Everyday Points</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_everyday_points"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_everyday_points"><strong>Blue:</strong> Everyday Spend × 1X<br><strong>Obsidian:</strong> Avg 1.5X (Travel 2X, Dining/Grocery 3X)<br><strong>Palladium:</strong> Everyday Spend × 2X</div>
                                     </button>
                                 </div>
                                 <div class="value" id="monthlyEverydayPoints">-</div>
@@ -1128,7 +1128,7 @@
                                 <div class="label label-with-help">
                                     <span data-i18n="monthly_bilt_cash">Monthly Bilt Cash</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_monthly_cash"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_monthly_cash"><strong>Flexible option only</strong><br>Everyday Spend × 4% = Bilt Cash<br><br>No Bilt Cash earned with Housing-only option</div>
                                     </button>
                                 </div>
                                 <div class="value" id="monthlyBiltCash">-</div>
@@ -1137,7 +1137,7 @@
                                 <div class="label label-with-help">
                                     <span data-i18n="remaining_bilt_cash">Remaining Bilt Cash</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_remaining_cash"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_remaining_cash">Remaining Bilt Cash after unlocking housing points<br><br><strong>Calculation:</strong> Monthly Cash - (Unlocked Points ÷ 100 × $3)<br><br>Remaining Cash can be used for other purposes</div>
                                     </button>
                                 </div>
                                 <div class="value" id="remainingBiltCash">-</div>
@@ -1146,7 +1146,7 @@
                                 <div class="label label-with-help">
                                     <span data-i18n="annual_total_value">Annual Total Value (Est.)</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_annual_value"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_annual_value"><strong>Formula:</strong><br>(Annual Points × $0.015) + Annual Remaining Cash + Annual Benefits - Annual Fee<br><br><strong>Point Value:</strong> 1 point = 1.5 cents (conservative)<br><strong>Annual Benefits:</strong> Obsidian $100, Palladium $600</div>
                                     </button>
                                 </div>
                                 <div class="value" id="annualValue">-</div>
@@ -1157,7 +1157,7 @@
                                 <span class="label label-with-help">
                                     <span data-i18n="everyday_spend_ratio">Everyday Spend Ratio</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_spend_ratio"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_spend_ratio">Everyday Spend ÷ Housing × 100%<br><br>Determines housing points multiplier in Housing-only option</div>
                                     </button>
                                 </span>
                                 <span class="value" id="spendRatio">-</span>
@@ -1166,7 +1166,7 @@
                                 <span class="label label-with-help">
                                     <span data-i18n="housing_only_multiplier">Housing-only Multiplier</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_multiplier"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_multiplier"><strong>Multiplier by Ratio:</strong><br>Under 25%: 0X (min 250pt)<br>25~50%: 0.5X<br>50~75%: 0.75X<br>75~100%: 1X<br>100%+: 1.25X</div>
                                     </button>
                                 </span>
                                 <span class="value" id="housingMultiplier">-</span>
@@ -1175,7 +1175,7 @@
                                 <span class="label label-with-help">
                                     <span data-i18n="annual_points_total">Annual Points Total</span>
                                     <button class="help-btn">?
-                                        <div class="tooltip" data-i18n-html="tooltip_annual_points"></div>
+                                        <div class="tooltip" data-i18n-html="tooltip_annual_points">(Monthly Housing Points + Monthly Everyday Points) × 12 months</div>
                                     </button>
                                 </span>
                                 <span class="value" id="annualPoints">-</span>

@@ -25,3 +25,7 @@ node_modules/
 # OS
 .DS_Store
 Thumbs.db
+
+# Test artifacts
+playwright-report/
+test-results/

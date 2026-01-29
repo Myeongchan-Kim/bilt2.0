@@ -51,6 +51,12 @@ function setupEventListeners() {
         });
     });
 
+    document.querySelectorAll('input[name="hotelValue"]').forEach(radio => {
+        radio.addEventListener('change', () => {
+            if (window.calculator) window.calculator.calculate();
+        });
+    });
+
     const chatInput = document.getElementById('chatInput');
     if (chatInput) {
         chatInput.addEventListener('keypress', (e) => {
@@ -77,6 +83,23 @@ function setupEventListeners() {
             if (window.chat) window.chat.askQuickQuestion(btn);
         });
     });
+
+    // Results fold/unfold
+    const resultsFoldBtn = document.getElementById('resultsFoldBtn');
+    const resultsSection = document.getElementById('resultsSection');
+    if (resultsFoldBtn && resultsSection) {
+        resultsFoldBtn.addEventListener('click', () => {
+            resultsSection.classList.toggle('collapsed');
+            const foldText = resultsFoldBtn.querySelector('.fold-text');
+            if (resultsSection.classList.contains('collapsed')) {
+                foldText.setAttribute('data-i18n', 'expand');
+                foldText.textContent = window.i18n ? window.i18n.get('expand') : 'Expand';
+            } else {
+                foldText.setAttribute('data-i18n', 'collapse');
+                foldText.textContent = window.i18n ? window.i18n.get('collapse') : 'Collapse';
+            }
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);
